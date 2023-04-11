@@ -63,4 +63,8 @@ Input valid Artilerie -> model, categorie (MORTIERE, OBUZIERE, LANSATOR, TUNURI,
 Input valid Infanterie -> model, categorie (PISTOALE, PISTOALE_MITRALIERA, ARME_ASALT, PUSTI_MITRALIERE, MITRALIERE, MITRALIERE_GRELE, PUSTI_LUNETA, GRENADE), țară de 
                           proveniență, calibru, suport lunetă (DA/NU)
 
-Input valid 
+Input valid Echipament Special -> tip, model, țară de proveniență
+
+Input valid Angajat -> nume, prenume, data nasterii, grad (OFITER, SUBOFITER, SOLDAT_GRADAT_PROFESIONIST, MAISTRU_MILITAR), funcție (SUBLOCOTENENT, LOCOTENENT,
+                       CAPITAN, MAIOR, LOCOTENENT_COLONEL, COLONEL, GENERAL_DE_BRIGADA, GENERAL_MAIOR, GENERAL_LOCOTENENT, GENERAL_MARESAL, SOLDAT, FRUNTAS, CAPORAL,
+                       SERGENT, SERGENT_MAJOR, PLUTONIER, PLUTONIER, PLUTONIER_ADJUTANT, PLUTONIER_ADJUTANT_PRINCIPAL)
