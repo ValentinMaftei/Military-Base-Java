@@ -1,0 +1,5 @@
+package Utile;
+
+public enum Grad {
+    OFITER, SUBOFITER, SOLDAT_GRADAT_PROFESIONIST, MAISTRU_MILITAR
+}
