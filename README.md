@@ -1,8 +1,8 @@
-[Română :romania:](#unitate-militara)
+[Română :romania:](#unitate-militară)
 
 [English :eu:](#military-base)
 
-# Unitate militara
+# Unitate militară
 
 ##### Proiect realizat in Java, utilizând concepte de „Programare orientată pe obiecte”.
 Proiectul ajută la gestiunea oricărei unități militare din România. Implementarea a fost făcută ținând cont de logistica militară de care dispune „Armata Română” și
@@ -30,25 +30,40 @@ Clasa InfanterieServiceimpl,
 Clasa AngajatiServiceimpl
 ###### Clase service implementate pentru adăugarea în liste a obiectelor fiecare în funcție de tipurile acestora și afișarea lor. 
 Funcții utilizate în clase:
+
+###### Afișarea listei de angajați și adăugarea unui angajat în listă.
 ```
 void addAngajat(Angajat angajat)
 List<Angajat> getAngajati()
+```
 
+###### Afișarea listei de Echipament Special și adăugarea unui element de acest tip în listă.
+```
 void addLogisticaArtilerie(Artilerie artilerie)
 List<Artilerie> getLogisticaArtilerie()
-
+```
+###### Afișarea listei de Logistică Echipament Special și adăugarea unui element de acest tip în listă.
+```
 void addLogisticaEchipamentS(EchipamentSpecial echipamentSpecial)
 Set<EchipamentSpecial> getLogisticaEchipamentSpecial()
-
+```
+###### Afișarea listei de Logistică Infanterie și adăugarea unui element de acest tip în listă.
+```
 void addLogisticaInfanterie(Infanterie infanterie)
 List<Infanterie> getLogisticaInfanterie()
-
+```
+###### Afișarea listei de Logistică Vehicule și adăugarea unui angajat în listă.
+```
 void addLogisticaVehicul(Vehicul vehicul)
 List<Vehicul> getLogisticaVehicule()
-
+```
+###### Afișarea detaliată a unui angajat.
+```
 public String getDetaliiAngajat()
 ```
 
+
+Inputurile pentru fiecare tip de obiect
 ```
 Input valid Vehicul : - Autovehicul -> denumire, utilizare (OFENSIVA, DEFENSIVA, TRANSPORT), țară de proveniență, blindat (DA/NU), număr de locuri, autonomie (în km), 
                                        viteză maximă (în km), categorie permis (A1, A, B, BE, etc.), tip (VEHICUL 4x4, VEHICUL TRANSPORT USOR, FURGONETA, ATV, AUTOCAMION);
@@ -68,3 +83,4 @@ Input valid Echipament Special -> tip, model, țară de proveniență
 Input valid Angajat -> nume, prenume, data nasterii, grad (OFITER, SUBOFITER, SOLDAT_GRADAT_PROFESIONIST, MAISTRU_MILITAR), funcție (SUBLOCOTENENT, LOCOTENENT,
                        CAPITAN, MAIOR, LOCOTENENT_COLONEL, COLONEL, GENERAL_DE_BRIGADA, GENERAL_MAIOR, GENERAL_LOCOTENENT, GENERAL_MARESAL, SOLDAT, FRUNTAS, CAPORAL,
                        SERGENT, SERGENT_MAJOR, PLUTONIER, PLUTONIER, PLUTONIER_ADJUTANT, PLUTONIER_ADJUTANT_PRINCIPAL)
+```
