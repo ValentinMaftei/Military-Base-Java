@@ -58,5 +58,9 @@ Input valid Vehicul : - Autovehicul -> denumire, utilizare (OFENSIVA, DEFENSIVA,
                                    viteză maximă (în km), suport remorcă (DA/NU), suport armă (DA/NU), armă
                                    
 Input valid Artilerie -> model, categorie (MORTIERE, OBUZIERE, LANSATOR, TUNURI, ANTITANC, ANTIAERIANA, SOL_AER), tip artilerie (STABIL, MOBIL, REMORCABIL, AUTO),
-                         calibru, bătaie maximă, țară de proveniență.
+                         calibru, bătaie maximă, țară de proveniență
                          
+Input valid Infanterie -> model, categorie (PISTOALE, PISTOALE_MITRALIERA, ARME_ASALT, PUSTI_MITRALIERE, MITRALIERE, MITRALIERE_GRELE, PUSTI_LUNETA, GRENADE), țară de 
+                          proveniență, calibru, suport lunetă (DA/NU)
+
+Input valid 
