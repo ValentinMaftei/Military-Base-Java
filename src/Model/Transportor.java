@@ -50,8 +50,8 @@ public final class Transportor extends Vehicul{
                 "Tara de provenienta: " + getTaraProvenienta() + '\n' +
                 "Blindat: " + isBlindat() + '\n' +
                 "Numar locuri: " + getNrLocuri() + '\n' +
-                "Autonomie: " + getAutonomie() + '\n' +
-                "Viteza maxima: " + getVitezaMaxima() + '\n' +
+                "Autonomie (km): " + getAutonomie() + '\n' +
+                "Viteza maxima (km/h): " + getVitezaMaxima() + '\n' +
                 "Armament principal: " + armamentPrincipal + '\n' +
                 "Armament secundar: " + armamentSecundar + '\n' +
                 "Tip vehicul: " + tipVehicul + '\n' ;

@@ -49,8 +49,8 @@ public final class Blindat extends Vehicul{
                 "Tara de provenienta: " + getTaraProvenienta() + '\n' +
                 "Blindat: " + isBlindat() + '\n' +
                 "Numar locuri: " + getNrLocuri() + '\n' +
-                "Autonomie: " + getAutonomie() + '\n' +
-                "Viteza maxima: " + getVitezaMaxima() + '\n' +
+                "Autonomie (km): " + getAutonomie() + '\n' +
+                "Viteza maxima (km/h): " + getVitezaMaxima() + '\n' +
                 "Suport remorca: " + suportRemorca + '\n' +
                 "Suport arma: " + suportArma + '\n' +
                 "Tip arma: " + arma + '\n' ;

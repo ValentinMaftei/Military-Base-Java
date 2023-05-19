@@ -1,6 +1,4 @@
 import Model.*;
-import Service.ArtilerieService;
-import Service.VehiculeService;
 import Service.impl.*;
 import Utile.*;
 
@@ -52,23 +50,6 @@ public class Main {
         Autovehicul autovehicul6 = new Autovehicul("IVECO", UtilizareVehicul.TRANSPORT,
                 "Italia", true, 3, 500,
                 110, CategorieAutovehicule.DE, true, TipAutovehicul.AUTOCAMION);
-
-
-        EchipamentSpecial echipamentSpecial1 = new EchipamentSpecial(TipSpeciale.BARCA_ASALT,
-                "BP-10", "Romania");
-        EchipamentSpecial echipamentSpecial2 = new EchipamentSpecial(TipSpeciale.PLANTATOR_MINE,
-                "DPM_4", "Romania");
-        EchipamentSpecial echipamentSpecial3 = new EchipamentSpecial(TipSpeciale.BARCA_ASALT,
-                "Zodiac MK3", "Franta");
-        EchipamentSpecial echipamentSpecial4 = new EchipamentSpecial(TipSpeciale.POD_PONTOANE,
-                "PR-71", "Romania");
-        EchipamentSpecial echipamentSpecial5 = new EchipamentSpecial(TipSpeciale.SALUPA_BLINDATA,
-                "ST 140", "Romania");
-        EchipamentSpecial echipamentSpecial6 = new EchipamentSpecial(TipSpeciale.BARJA_AUTOPROPULSANTA,
-                "MLC 240", "Romania");
-        EchipamentSpecial echipamentSpecial7 = new EchipamentSpecial(TipSpeciale.FERIBOT,
-                "MLC 300", "Romania");
-
 
         Artilerie artilerie1 = new Artilerie("M 1988", CategorieArtilerie.MORTIERE, TipArtilerie.STABIL, 60,
                 8, "Romania");
@@ -171,13 +152,9 @@ public class Main {
         angajat2.addArtilerie(artilerie1);
         angajat2.addArtilerie(artilerie2);
         angajat2.addArtilerie(artilerie7);
-        angajat3.addEchipamentS(echipamentSpecial1);
-        angajat3.addEchipamentS(echipamentSpecial3);
         angajat3.addVehicul(transportor1);
         angajat3.addVehicul(transportor3);
-        angajat3.addEchipamentS(echipamentSpecial3);
         angajat3.addVehicul(autovehicul5);
-        angajat4.addEchipamentS(echipamentSpecial5);
         angajat4.addVehicul(autovehicul6);
         angajat4.addArtilerie(artilerie6);
         angajat4.addArtilerie(artilerie3);
@@ -190,12 +167,9 @@ public class Main {
         angajat6.addArtilerie(artilerie5);
         angajat6.addVehicul(blindat3);
         angajat6.addInfanterie(infanterie13);
-        angajat6.addEchipamentS(echipamentSpecial2);
         angajat7.addVehicul(transportor4);
         angajat7.addVehicul(blindat2);
-        angajat8.addEchipamentS(echipamentSpecial7);
         angajat8.addInfanterie(infanterie12);
-        angajat8.addEchipamentS(echipamentSpecial6);
         angajat9.addInfanterie(infanterie9);
         angajat10.addInfanterie(infanterie11);
         angajat10.addInfanterie(infanterie4);
@@ -242,13 +216,9 @@ public class Main {
 
 
         EchipamentSpecialServiceimpl echipamentSpecialService = new EchipamentSpecialServiceimpl();
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial1);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial2);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial3);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial4);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial5);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial6);
-        echipamentSpecialService.addLogisticaEchipamentS(echipamentSpecial7);
+        String csvFile = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisierEchipamentSpecial.csv";
+        List<String[]> fisierEchipamentSpecial = SingletonFileReaderWriter.read(csvFile);
+        echipamentSpecialService.addLogisticaEchipamentS(fisierEchipamentSpecial);
 
         System.out.println("Lista logistica echipament special: ");
         System.out.println(echipamentSpecialService.getLogisticaEchipamentSpecial());
@@ -298,6 +268,5 @@ public class Main {
         // In caz ca vrem sa afisam detaliat informatii despre angajat
         System.out.println(angajat1.getDetaliiAngajat());
         System.out.println(angajat1.getDetaliiAngajat());
-
     }
 }

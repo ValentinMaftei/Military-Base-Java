@@ -7,4 +7,5 @@ import java.util.List;
 public interface ArtilerieService {
     void addLogisticaArtilerie(Artilerie artilerie);
     List<Artilerie> getLogisticaArtilerie();
+    void addLogisticaArtilerie(List<String[]> artilerie);
 }
