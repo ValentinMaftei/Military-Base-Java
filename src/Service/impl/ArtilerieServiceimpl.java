@@ -2,9 +2,11 @@ package Service.impl;
 
 import Model.Artilerie;
 import Service.ArtilerieService;
+import Utile.AuditActionsSingleton;
 import Utile.CategorieArtilerie;
 import Utile.TipArtilerie;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,7 @@ public class ArtilerieServiceimpl implements ArtilerieService {
     }
 
     @Override
-    public void addLogisticaArtilerie(List<String[]> artilerie) {
+    public void addLogisticaArtilerie(List<String[]> artilerie) throws IOException {
         if (logisticaArtilerie == null)
             logisticaArtilerie = new ArrayList<>();
         for (String[] line : artilerie){
@@ -40,7 +42,13 @@ public class ArtilerieServiceimpl implements ArtilerieService {
             String taraProvenienta = line[5];
 
             Artilerie artilerieNou = new Artilerie(model, categorie, tip, calibru, bataieMaxima, taraProvenienta);
+            AuditActionsSingleton.INSTANCE.Action("Adăugare element artilerie");
             logisticaArtilerie.add(artilerieNou);
         }
+    }
+
+    @Override
+    public List<Artilerie> getLogisticaArtilerieAdd() {
+        return logisticaArtilerie;
     }
 }

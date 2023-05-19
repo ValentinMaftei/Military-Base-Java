@@ -1,4 +1,7 @@
 import Model.*;
+import Service.BlindateService;
+import Service.TransportoareService;
+import Service.VehiculeService;
 import Service.impl.*;
 import Utile.*;
 
@@ -6,97 +9,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Transportor transportor1 = new Transportor("MLVM", UtilizareVehicul.TRANSPORT, "Romania",
-                true, 7, 700, 48, "mitralieră grea KPVT 14,5 mm",
-                "mitralieră PKT 7,62 mm", TipTransportor.SENILATA);
-        Transportor transportor2 = new Transportor("TAB B33 Zimbru", UtilizareVehicul.TRANSPORT, "Romania",
-                true, 10, 700, 85, "mitralieră grea KPVT 14,5 mm",
-                "mitralieră PKT 7,62 mm", TipTransportor.ROTI);
-        Transportor transportor3 = new Transportor("TAB-77", UtilizareVehicul.TRANSPORT, "Romania",
-                true, 11, 550, 80, "mitralieră grea MTB cal. 14,5 mm ",
-                "mitralieră PKT 7,62 mm", TipTransportor.ROTI);
-        Transportor transportor4 = new Transportor("TABC-79", UtilizareVehicul.TRANSPORT, "Romania",
-                true, 11, 700, 85, "mitralieră grea KPVT 14,5 mm",
-                "mitralieră PKT 7,62 mm", TipTransportor.ROTI);
-        Transportor transportor5 = new Transportor("MOWAG Piranha", UtilizareVehicul.TRANSPORT, "Elvetia",
-                true, 11, 700, 85, "stație de luptă FNNH Arrows cu mitralieră grea M2HB",
-                "mortiere 120 mm", TipTransportor.ROTI);
-
-        Blindat blindat1 = new Blindat("URO VAMTAC", UtilizareVehicul.TRANSPORT, "Spania",
-                true, 4, 600, 135, true,
-                true, "M240");
-        Blindat blindat2 = new Blindat("HUMVEE", UtilizareVehicul.TRANSPORT, "Statele Unite ale Americii",
-                true, 4, 443, 125, true,
-                false, "-");
-        Blindat blindat3 = new Blindat("WOLF", UtilizareVehicul.TRANSPORT, "Israel",
-                true, 12, 500, 120, true,
-                true, "Turela RCWS");
-
-        Autovehicul autovehicul1 = new Autovehicul("Land Rover Defender", UtilizareVehicul.TRANSPORT,
-                "Regatul Unit", false, 5, 400,
-                140, CategorieAutovehicule.B, true, TipAutovehicul.VEHICUL_4X4);
-        Autovehicul autovehicul2 = new Autovehicul("Volkswagen Transporter", UtilizareVehicul.TRANSPORT,
-                "Germania", false, 9, 600,
-                160, CategorieAutovehicule.B, false, TipAutovehicul.FURGONETA);
-        Autovehicul autovehicul3 = new Autovehicul("Mercedes-Benz Sprinter", UtilizareVehicul.TRANSPORT,
-                "Germania", false, 3, 700,
-                170, CategorieAutovehicule.CE, true, TipAutovehicul.FURGONETA);
-        Autovehicul autovehicul4 = new Autovehicul("Dacia Duster", UtilizareVehicul.TRANSPORT,
-                "Romania", false, 5, 400,
-                140, CategorieAutovehicule.B, false, TipAutovehicul.VEHICUL_4X4);
-        Autovehicul autovehicul5 = new Autovehicul("Polaris ATV", UtilizareVehicul.TRANSPORT,
-                "Statele Unite ale Americii", false, 4, 100,
-                90, CategorieAutovehicule.A, true, TipAutovehicul.ATV);
-        Autovehicul autovehicul6 = new Autovehicul("IVECO", UtilizareVehicul.TRANSPORT,
-                "Italia", true, 3, 500,
-                110, CategorieAutovehicule.DE, true, TipAutovehicul.AUTOCAMION);
-
-        Artilerie artilerie1 = new Artilerie("M 1988", CategorieArtilerie.MORTIERE, TipArtilerie.STABIL, 60,
-                8, "Romania");
-        Artilerie artilerie2 = new Artilerie("M 1982", CategorieArtilerie.MORTIERE, TipArtilerie.STABIL, 82,
-                7, "Romania");
-        Artilerie artilerie3 = new Artilerie("HIMARS", CategorieArtilerie.LANSATOR, TipArtilerie.MOBIL, 227,
-                480, "Statele Unite ale Americii");
-        Artilerie artilerie4 = new Artilerie("LAROM", CategorieArtilerie.LANSATOR, TipArtilerie.MOBIL, 160,
-                45, "Israel");
-        Artilerie artilerie5 = new Artilerie("Spike", CategorieArtilerie.ANTITANC, TipArtilerie.MOBIL, 30,
-                1, "Israel");
-        Artilerie artilerie6 = new Artilerie("Gepard SPAAG", CategorieArtilerie.ANTIAERIANA, TipArtilerie.MOBIL,
-                35, 5, "Romania");
-        Artilerie artilerie7 = new Artilerie("Mim-104 Patriot", CategorieArtilerie.ANTIAERIANA, TipArtilerie.MOBIL,
-                90, 12, "Statele Unite ale Americii");
-
-
-        Infanterie infanterie1 = new Infanterie("M4A1", CategorieInfanterie.ARME_ASALT,
-                "Statele Unite ale Americii", 5.56F, true);
-        Infanterie infanterie2 = new Infanterie("Pistol MD 2000", CategorieInfanterie.PISTOALE,
-                "Romania", 9, false);
-        Infanterie infanterie3 = new Infanterie("Glock 17", CategorieInfanterie.PISTOALE,
-                "Austria", 9, false);
-        Infanterie infanterie4 = new Infanterie("Pistol TT-Cugir", CategorieInfanterie.PISTOALE,
-                "Romania", 7.65F, false);
-        Infanterie infanterie5 = new Infanterie("Uzi", CategorieInfanterie.PISTOALE_MITRALIERA,
-                "Israel", 9, false);
-        Infanterie infanterie6 = new Infanterie("HK UMP9", CategorieInfanterie.PISTOALE_MITRALIERA,
-                "Germania", 9, true);
-        Infanterie infanterie7 = new Infanterie("PA md. 86", CategorieInfanterie.ARME_ASALT,
-                "Romania", 5.45F, true);
-        Infanterie infanterie8 = new Infanterie("Heckler G63", CategorieInfanterie.ARME_ASALT,
-                "Germania", 5.56F, true);
-        Infanterie infanterie9 = new Infanterie("Steyr AUG", CategorieInfanterie.ARME_ASALT,
-                "Austria", 7.65F, false);
-        Infanterie infanterie10 = new Infanterie("PM md. 64", CategorieInfanterie.PUSTI_MITRALIERE,
-                "Romania", 7.62F, true);
-        Infanterie infanterie11 = new Infanterie("M249", CategorieInfanterie.PUSTI_MITRALIERE,
-                "Statele Unite ale Americii", 5.56F, true);
-        Infanterie infanterie12 = new Infanterie("DSK", CategorieInfanterie.MITRALIERE_GRELE,
-                "Romania", 12.7F, false);
-        Infanterie infanterie13 = new Infanterie("PSL", CategorieInfanterie.PUSTI_LUNETA,
-                "Romania", 7.62F, true);
-        Infanterie infanterie14 = new Infanterie("Barrett M82", CategorieInfanterie.PUSTI_LUNETA,
-                "Statele Unite ale Americii", .50F, true);
-        Infanterie infanterie15 = new Infanterie("RKG-3", CategorieInfanterie.GRENADE,
-                "Romania", 0, false);
+        SingletonFileReaderWriter singletonFileReaderWriter = SingletonFileReaderWriter.INSTANCE;
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(2002, Calendar.JANUARY, 23);
@@ -143,108 +56,72 @@ public class Main {
         Angajat angajat10 = new Angajat("Alexa", "Marin", dataNastere, Grad.SOLDAT_GRADAT_PROFESIONIST,
                 Functie.SOLDAT);
 
-        angajat1.addVehicul(autovehicul1);
-        angajat1.addVehicul(autovehicul3);
-        angajat1.addInfanterie(infanterie5);
-        angajat1.addInfanterie(infanterie6);
-        angajat2.addVehicul(autovehicul2);
-        angajat2.addVehicul(autovehicul4);
-        angajat2.addArtilerie(artilerie1);
-        angajat2.addArtilerie(artilerie2);
-        angajat2.addArtilerie(artilerie7);
-        angajat3.addVehicul(transportor1);
-        angajat3.addVehicul(transportor3);
-        angajat3.addVehicul(autovehicul5);
-        angajat4.addVehicul(autovehicul6);
-        angajat4.addArtilerie(artilerie6);
-        angajat4.addArtilerie(artilerie3);
-        angajat4.addArtilerie(artilerie4);
-        angajat5.addVehicul(transportor5);
-        angajat5.addInfanterie(infanterie7);
-        angajat5.addInfanterie(infanterie8);
-        angajat5.addVehicul(transportor2);
-        angajat6.addVehicul(blindat1);
-        angajat6.addArtilerie(artilerie5);
-        angajat6.addVehicul(blindat3);
-        angajat6.addInfanterie(infanterie13);
-        angajat7.addVehicul(transportor4);
-        angajat7.addVehicul(blindat2);
-        angajat8.addInfanterie(infanterie12);
-        angajat9.addInfanterie(infanterie9);
-        angajat10.addInfanterie(infanterie11);
-        angajat10.addInfanterie(infanterie4);
-        angajat10.addInfanterie(infanterie14);
-
 
         VehiculeServiceimpl vehiculeService = new VehiculeServiceimpl();
-        vehiculeService.addLogisticaVehicul(transportor1);
-        vehiculeService.addLogisticaVehicul(transportor2);
-        vehiculeService.addLogisticaVehicul(transportor3);
-        vehiculeService.addLogisticaVehicul(transportor4);
-        vehiculeService.addLogisticaVehicul(transportor5);
 
-        vehiculeService.addLogisticaVehicul(autovehicul1);
-        vehiculeService.addLogisticaVehicul(autovehicul2);
-        vehiculeService.addLogisticaVehicul(autovehicul3);
-        vehiculeService.addLogisticaVehicul(autovehicul4);
-        vehiculeService.addLogisticaVehicul(autovehicul5);
-        vehiculeService.addLogisticaVehicul(autovehicul6);
+        BlindateServiceimpl blindateServiceimpl = new BlindateServiceimpl();
+        String csvFileBlindate = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierBlindate.csv";
+        List<String[]> fisierBlindate = singletonFileReaderWriter.read(csvFileBlindate);
+        blindateServiceimpl.addBlindate(fisierBlindate);
+        List<Blindat> blindate = blindateServiceimpl.getBlindate();
+        for (Blindat blindat : blindate){
+            vehiculeService.addLogisticaVehicul(blindat);
+        }
 
-        vehiculeService.addLogisticaVehicul(blindat1);
-        vehiculeService.addLogisticaVehicul(blindat2);
-        vehiculeService.addLogisticaVehicul(blindat3);
+        TransportoareServiceimpl transportoareServiceimpl = new TransportoareServiceimpl();
+        String csvFileTransportoare = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierTransportoare.csv";
+        List<String[]> fisierTransportoare = singletonFileReaderWriter.read(csvFileTransportoare);
+        transportoareServiceimpl.addTransportoare(fisierTransportoare);
+        List<Transportor> transportoare = transportoareServiceimpl.getTransportoare();
+        for (Transportor transportor : transportoare){
+            vehiculeService.addLogisticaVehicul(transportor);
+        }
 
-        System.out.println("Lista logistica vehicule: ");
+        AutovehiculeServiceimpl autovehiculeServiceimpl = new AutovehiculeServiceimpl();
+        String csvFileAutovehicule = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierAutovehicule.csv";
+        List<String[]> fisierAutovehicule = singletonFileReaderWriter.read(csvFileAutovehicule);
+        autovehiculeServiceimpl.addAutovehicule(fisierAutovehicule);
+        List<Autovehicul> autovehicule = autovehiculeServiceimpl.getAutovehicule();
+        for (Autovehicul autovehicul : autovehicule){
+            vehiculeService.addLogisticaVehicul(autovehicul);
+        }
+
+        System.out.println("Lista logistică vehicule: ");
         System.out.println(vehiculeService.getLogisticaVehicule());
         System.out.println();
         System.out.println();
 
 
-        ArtilerieServiceimpl artilerieService = new ArtilerieServiceimpl();
-        artilerieService.addLogisticaArtilerie(artilerie1);
-        artilerieService.addLogisticaArtilerie(artilerie2);
-        artilerieService.addLogisticaArtilerie(artilerie3);
-        artilerieService.addLogisticaArtilerie(artilerie4);
-        artilerieService.addLogisticaArtilerie(artilerie5);
-        artilerieService.addLogisticaArtilerie(artilerie6);
-        artilerieService.addLogisticaArtilerie(artilerie7);
+        ArtilerieServiceimpl artilerieServiceimpl = new ArtilerieServiceimpl();
+        String csvFileArtilerie = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierArtilerie.csv";
+        List<String[]> fisierArtilerie = singletonFileReaderWriter.read(csvFileArtilerie);
+        artilerieServiceimpl.addLogisticaArtilerie(fisierArtilerie);
 
-        System.out.println("Lista logistica artilerie: ");
-        System.out.println(artilerieService.getLogisticaArtilerie());
+        System.out.println("Lista logistică artilerie: ");
+        System.out.println(artilerieServiceimpl.getLogisticaArtilerie());
         System.out.println();
         System.out.println();
 
 
-        EchipamentSpecialServiceimpl echipamentSpecialService = new EchipamentSpecialServiceimpl();
-        String csvFile = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisierEchipamentSpecial.csv";
-        List<String[]> fisierEchipamentSpecial = SingletonFileReaderWriter.read(csvFile);
-        echipamentSpecialService.addLogisticaEchipamentS(fisierEchipamentSpecial);
+        EchipamentSpecialServiceimpl echipamentSpecialServiceimpl = new EchipamentSpecialServiceimpl();
+        String csvFileSpecial = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierEchipamentSpecial.csv";
+        List<String[]> fisierEchipamentSpecial = SingletonFileReaderWriter.INSTANCE.read(csvFileSpecial);
+        echipamentSpecialServiceimpl.addLogisticaEchipamentS(fisierEchipamentSpecial);
 
         System.out.println("Lista logistica echipament special: ");
-        System.out.println(echipamentSpecialService.getLogisticaEchipamentSpecial());
+        System.out.println(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecial());
         System.out.println();
         System.out.println();
 
 
-        InfanterieServiceimpl infanterieService = new InfanterieServiceimpl();
-        infanterieService.addLogisticaInfanterie(infanterie1);
-        infanterieService.addLogisticaInfanterie(infanterie2);
-        infanterieService.addLogisticaInfanterie(infanterie3);
-        infanterieService.addLogisticaInfanterie(infanterie4);
-        infanterieService.addLogisticaInfanterie(infanterie5);
-        infanterieService.addLogisticaInfanterie(infanterie6);
-        infanterieService.addLogisticaInfanterie(infanterie7);
-        infanterieService.addLogisticaInfanterie(infanterie8);
-        infanterieService.addLogisticaInfanterie(infanterie9);
-        infanterieService.addLogisticaInfanterie(infanterie10);
-        infanterieService.addLogisticaInfanterie(infanterie11);
-        infanterieService.addLogisticaInfanterie(infanterie12);
-        infanterieService.addLogisticaInfanterie(infanterie13);
-        infanterieService.addLogisticaInfanterie(infanterie14);
-        infanterieService.addLogisticaInfanterie(infanterie15);
+        InfanterieServiceimpl infanterieServiceimpl = new InfanterieServiceimpl();
+        String csvFileInfanterie = "D:\\Facultate\\JavaLab\\ProiectPAOUnitateMilitara\\fisiere\\fisierInfanterie.csv";
+        List<String[]> fisierInfanterie = SingletonFileReaderWriter.INSTANCE.read(csvFileInfanterie);
+        infanterieServiceimpl.addLogisticaInfanterie(fisierInfanterie);
+
 
         System.out.println("Lista logistica infanterie: ");
-        System.out.println(infanterieService.getLogisticaInfanterie());
+        System.out.println(infanterieServiceimpl.getLogisticaInfanterie());
         System.out.println();
         System.out.println();
 
@@ -260,13 +137,66 @@ public class Main {
         angajatiServiceimpl.addAngajat(angajat9);
         angajatiServiceimpl.addAngajat(angajat10);
 
+        angajat1.addVehicul(autovehiculeServiceimpl.getAutovehicule().get(0));
+        angajat1.addVehicul(autovehiculeServiceimpl.getAutovehicule().get(3));
+        angajat1.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(5));
+        angajat1.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(6));
+        angajat2.addVehicul(autovehiculeServiceimpl.getAutovehicule().get(2));
+        angajat2.addVehicul(autovehiculeServiceimpl.getAutovehicule().get(4));
+        angajat2.addArtilerie(artilerieServiceimpl.getLogisticaArtilerieAdd().get(1));
+        angajat2.addArtilerie(artilerieServiceimpl.getLogisticaArtilerieAdd().get(2));
+        angajat3.addEchipamentS(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().get(1));
+        angajat3.addEchipamentS(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().get(3));
+        angajat3.addVehicul(transportoareServiceimpl.getTransportoare().get(1));
+        angajat3.addVehicul(transportoareServiceimpl.getTransportoare().get(3));
+        angajat3.addVehicul(autovehiculeServiceimpl.getAutovehicule().get(5));
+        angajat4.addEchipamentS(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().get(5));
+        angajat4.addArtilerie(artilerieServiceimpl.getLogisticaArtilerieAdd().get(6));
+        angajat4.addArtilerie(artilerieServiceimpl.getLogisticaArtilerieAdd().get(3));
+        angajat5.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(7));
+        angajat5.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(8));
+        angajat5.addVehicul(transportoareServiceimpl.getTransportoare().get(2));
+        angajat6.addVehicul(blindateServiceimpl.getBlindate().get(1));
+        angajat6.addArtilerie(artilerieServiceimpl.getLogisticaArtilerieAdd().get(5));
+        angajat6.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(13));
+        angajat6.addEchipamentS(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().get(2));
+        angajat7.addVehicul(transportoareServiceimpl.getTransportoare().get(4));
+        angajat7.addVehicul(blindateServiceimpl.getBlindate().get(2));
+        angajat8.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(12));
+        angajat8.addEchipamentS(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().get(6));
+        angajat9.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(9));
+        angajat10.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(11));
+        angajat10.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(4));
+        angajat10.addInfanterie(infanterieServiceimpl.getLogisticaInfanterieAdd().get(14));
+
+
         // Afisam lista sumara a angajatilor.
         System.out.println("Lista angajati batalion: ");
         System.out.println(angajatiServiceimpl.getAngajati());
 
-
         // In caz ca vrem sa afisam detaliat informatii despre angajat
-        System.out.println(angajat1.getDetaliiAngajat());
-        System.out.println(angajat1.getDetaliiAngajat());
+        // System.out.println(angajat1.getDetaliiAngajat());
+
+        singletonFileReaderWriter.writeToCSV("fisiere/fisierBatalion.csv", "Lista logistică artilerie: " +
+                "\nBatalionul detine " + artilerieServiceimpl.getLogisticaArtilerieAdd().size() + " elemente de artilerie.\n"
+                + artilerieServiceimpl.getLogisticaArtilerieAdd().toString() + "\n\n" + "Lista logistică vehicule: " +
+                "\nBatalionul detine " + vehiculeService.getLogisticaVehiculeAdd().size() + " vehicule.\n"
+                + vehiculeService.getLogisticaVehiculeAdd().toString() + "\n\n" + "Lista logistică echipament special: " +
+                "\nBatalionul detine " + echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().size()
+                + " echipamente speciale." + "\n"
+                + echipamentSpecialServiceimpl.getLogisticaEchipamentSpecialAdd().toString() + "\n\n"
+                + "Lista logistică infanterie:\n" + "Batalionul detine "
+                + infanterieServiceimpl.getLogisticaInfanterieAdd().size() + " elemente de infanterie."
+                + "\n" + infanterieServiceimpl.getLogisticaInfanterieAdd().toString() + "\n\n" + "Listă angajați batalion:\n"
+                + "Batalionul este format din " + angajatiServiceimpl.getAngajatiAdd().size() + " cadre militare.\n"
+                + angajatiServiceimpl.getAngajatiAdd());
+
+        String angajatiDetaliat = "";
+        List<Angajat> angajati = angajatiServiceimpl.getAngajatiAdd();
+        for (Angajat angajat : angajati){
+            angajatiDetaliat = angajatiDetaliat + angajat.getDetaliiAngajat();
+        }
+
+        singletonFileReaderWriter.writeToCSV("fisiere/fisierAngajatiDetaliat.csv", angajatiDetaliat);
     }
 }

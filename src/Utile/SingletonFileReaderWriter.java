@@ -10,7 +10,7 @@ public enum SingletonFileReaderWriter {
     INSTANCE;
 
     public static final String delimiter = ",";
-    public static List<String[]> read(String csvFile) {
+    public List<String[]> read(String csvFile) {
         List<String[]> fileList = new ArrayList<>();
         try {
             File file = new File(csvFile);
@@ -30,17 +30,29 @@ public enum SingletonFileReaderWriter {
         return fileList;
     }
 
-    public static String convertToCSV(String[] item){
+    public String convertToCSV(String[] item){
         return Stream.of(item).
-                collect(Collectors.joining(","));
+                collect(Collectors.joining("\n"));
     }
 
-    public static void writeToCsv(String fileName, List<String[]> content) throws FileNotFoundException {
+    public void writeToCsv(String fileName, List<String[]> content) throws FileNotFoundException {
         File file = new File(fileName);
         try (PrintWriter printWriter = new PrintWriter(file)) {
             content.stream()
                     .map(item -> convertToCSV(item))
                     .forEach(printWriter::println);
+        }
+    }
+
+    public void writeToCSV(String fileName, String content) throws FileNotFoundException{
+        File file = new File(fileName);
+        try (PrintWriter printWriter = new PrintWriter(file)){
+            printWriter.println(content);
+            printWriter.println();
+            printWriter.println();
+        }
+        catch (FileNotFoundException e){
+            System.out.println(e.getMessage());
         }
     }
 }

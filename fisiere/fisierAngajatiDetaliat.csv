@@ -1,0 +1,415 @@
+
+ Alexa Marin
+Cod identificare: edb5161e-afb1-41ea-bd27-c0bff2dbd67c
+Grad: SOLDAT_GRADAT_PROFESIONIST
+Titlu: SOLDAT
+Data nasterii: Wed Oct 27 20:03:45 EET 1993
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+[
+ Infanterie DSK
+Cod identificare: 988acd4d-ee9f-4a23-b21c-c55b41bae9d3
+Categorie: MITRALIERE_GRELE
+Calibru (mm): 12.7
+Suport luneta: false
+Tara de provenienta: Romania
+, 
+ Infanterie Uzi
+Cod identificare: 99c70b3c-da5a-4aad-90fb-96132e1d77d9
+Categorie: PISTOALE_MITRALIERA
+Calibru (mm): 9.0
+Suport luneta: false
+Tara de provenienta: Israel
+, 
+ Infanterie RKG-3
+Cod identificare: 787550e5-7063-4ff2-bb83-2859c2edf89d
+Categorie: GRENADE
+Calibru (mm): 0.0
+Suport luneta: false
+Tara de provenienta: Romania
+]
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+null
+
+ Andreica Radu
+Cod identificare: 81524417-c347-405d-9de5-f2f90d8bb42b
+Grad: SUBOFITER
+Titlu: SUBLOCOTENENT
+Data nasterii: Tue Nov 10 20:03:45 EET 1998
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+[
+ Infanterie PSL
+Cod identificare: 16112842-d2ff-435e-ae63-b10b930187a3
+Categorie: PUSTI_LUNETA
+Calibru (mm): 7.62
+Suport luneta: true
+Tara de provenienta: Romania
+]
+Gestiune echipament special: 
+[
+ EchipamentSpecial MLC 300
+Cod identificare: c4da57a4-b1e5-4a27-8115-e0aeaa612e5d
+Tip: FERIBOT
+Model: MLC 300
+Tara de provenienta: Romania
+]
+Gestiune vehicule: 
+null
+
+ Brinzac Teodor
+Cod identificare: 7d9d0d75-3755-4452-9e58-0141867a6c5a
+Grad: SOLDAT_GRADAT_PROFESIONIST
+Titlu: SUBLOCOTENENT
+Data nasterii: Thu Nov 05 20:03:45 EET 1998
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+null
+Gestiune echipament special: 
+[
+ EchipamentSpecial DPM_4
+Cod identificare: ab9badfb-cd7b-4402-8ab2-6b8532edbc8d
+Tip: PLANTATOR_MINE
+Model: DPM_4
+Tara de provenienta: Romania
+, 
+ EchipamentSpecial PR-71
+Cod identificare: a9f2d648-5470-4589-ae65-62221ffb801b
+Tip: POD_PONTOANE
+Model: PR-71
+Tara de provenienta: Romania
+]
+Gestiune vehicule: 
+[
+ Transportor TAB B33 Zimbru
+Cod identificare: 72723998-ad34-48d9-8014-7c0bc89a33d8
+Utilizare: TRANSPORT
+Tara de provenienta: Romania
+Blindat: true
+Numar locuri: 10
+Autonomie (km): 700
+Viteza maxima (km/h): 85
+Armament principal: mitralieră grea KPVT 14.5 mm
+Armament secundar: mitralieră PKT 7.62 mm
+Tip vehicul: ROTI
+, 
+ Transportor TABC-79
+Cod identificare: 08f97885-489a-4e04-943a-c966a66c22f2
+Utilizare: TRANSPORT
+Tara de provenienta: Romania
+Blindat: true
+Numar locuri: 11
+Autonomie (km): 700
+Viteza maxima (km/h): 85
+Armament principal: mitralieră grea KPVT 14.5 mm
+Armament secundar: mitralieră PKT 7.62 mm
+Tip vehicul: ROTI
+, 
+ Autovehicul IVECO
+Cod identificare: f2393a12-1d97-41b8-93f9-e36b84671d7c
+Utilizare: TRANSPORT
+Tara de provenienta: Italia
+Blindat: true
+Numar locuri: 3
+Autonomie (km): 500
+Viteza maxima (km/h): 110
+Categorie: DE
+Suport remorca: true
+Tip autovehicul: AUTOCAMION
+]
+
+ Ciobanu Mircea
+Cod identificare: 3d5f91c6-e02f-400f-8fb5-edee57abaa5e
+Grad: SUBOFITER
+Titlu: SERGENT
+Data nasterii: Sun Mar 15 20:03:45 EET 1987
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+null
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+[
+ Transportor MOWAG Piranha
+Cod identificare: aa650a4c-21a7-45a0-916a-04de653b8406
+Utilizare: TRANSPORT
+Tara de provenienta: Elvetia
+Blindat: true
+Numar locuri: 11
+Autonomie (km): 700
+Viteza maxima (km/h): 85
+Armament principal: stație de luptă FNNH Arrows cu mitralieră grea M2HB
+Armament secundar: mortiere 120 mm
+Tip vehicul: ROTI
+, 
+ Blindat WOLF
+Cod identificare: 4ad988a0-37c1-42c3-a76f-29af978c73e3
+Utilizare: TRANSPORT
+Tara de provenienta: Israel
+Blindat: true
+Numar locuri: 12
+Autonomie (km): 500
+Viteza maxima (km/h): 120
+Suport remorca: true
+Suport arma: true
+Tip arma: Turela RCWS
+]
+
+ Jitareanu Stefan
+Cod identificare: e761bd2e-9bb4-48fe-8768-1df35209a4ed
+Grad: OFITER
+Titlu: LOCOTENENT
+Data nasterii: Sat Jun 30 20:03:45 EEST 1990
+Gestiune artilerie: 
+[
+ Artilerie Mim-104 Patriot
+Cod identificare: 4bf6acee-6076-4b2d-8fc4-2cca985cfb1a
+Tip: MOBIL
+Categorie: ANTIAERIANA
+Calibru (mm): 90.0
+Bataie maxima (km): 12
+Tara de provenienta: Statele Unite ale Americii
+, 
+ Artilerie LAROM
+Cod identificare: 4d3d0bf4-8d7d-45cd-93c9-8f649c0ca68e
+Tip: MOBIL
+Categorie: LANSATOR
+Calibru (mm): 160.0
+Bataie maxima (km): 45
+Tara de provenienta: Israel
+]
+Gestiune infanterie: 
+null
+Gestiune echipament special: 
+[
+ EchipamentSpecial MLC 240
+Cod identificare: b2c2f7df-033f-4030-b4db-1a0412171e6e
+Tip: BARJA_AUTOPROPULSANTA
+Model: MLC 240
+Tara de provenienta: Romania
+]
+Gestiune vehicule: 
+null
+
+ Maftei Matei
+Cod identificare: 5337a492-782b-4aec-954f-2836a20df933
+Grad: OFITER
+Titlu: LOCOTENENT_COLONEL
+Data nasterii: Tue Feb 22 20:03:45 EET 2000
+Gestiune artilerie: 
+[
+ Artilerie M 1982
+Cod identificare: 2555f43f-5579-4476-9df0-8a8a534c7e56
+Tip: STABIL
+Categorie: MORTIERE
+Calibru (mm): 82.0
+Bataie maxima (km): 7
+Tara de provenienta: Romania
+, 
+ Artilerie HIMARS
+Cod identificare: f82182c0-fb64-490c-9b7b-508af9354878
+Tip: MOBIL
+Categorie: LANSATOR
+Calibru (mm): 227.0
+Bataie maxima (km): 480
+Tara de provenienta: Statele Unite ale Americii
+]
+Gestiune infanterie: 
+null
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+[
+ Autovehicul Mercedes-Benz Sprinter
+Cod identificare: c8288583-6dd8-4426-a8ff-0490b47df923
+Utilizare: TRANSPORT
+Tara de provenienta: Germania
+Blindat: false
+Numar locuri: 3
+Autonomie (km): 700
+Viteza maxima (km/h): 170
+Categorie: CE
+Suport remorca: true
+Tip autovehicul: FURGONETA
+, 
+ Autovehicul Polaris ATV
+Cod identificare: 856100f1-5dc7-4b5d-8200-081cbc27d91d
+Utilizare: TRANSPORT
+Tara de provenienta: Statele Unite ale Americii
+Blindat: false
+Numar locuri: 4
+Autonomie (km): 100
+Viteza maxima (km/h): 90
+Categorie: A
+Suport remorca: true
+Tip autovehicul: ATV
+]
+
+ Maftei Valentin
+Cod identificare: acad9b9d-4ae1-4842-82f5-8fbd8980a259
+Grad: SUBOFITER
+Titlu: PLUTONIER_ADJUTANT
+Data nasterii: Wed Jan 23 20:03:45 EET 2002
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+[
+ Infanterie HK UMP9
+Cod identificare: 2a1e6d82-628f-4dd0-a2f1-a7944f3adaed
+Categorie: PISTOALE_MITRALIERA
+Calibru (mm): 9.0
+Suport luneta: true
+Tara de provenienta: Germania
+, 
+ Infanterie PA md. 86
+Cod identificare: b65eb530-3daf-4b8d-94aa-09fb6d86f731
+Categorie: ARME_ASALT
+Calibru (mm): 5.45
+Suport luneta: true
+Tara de provenienta: Romania
+]
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+[
+ Autovehicul Land Rover Defender
+Cod identificare: 8f203c62-5eb3-4407-9671-c1f2a8525d12
+Utilizare: TRANSPORT
+Tara de provenienta: Regatul Unit
+Blindat: false
+Numar locuri: 5
+Autonomie (km): 400
+Viteza maxima (km/h): 140
+Categorie: B
+Suport remorca: true
+Tip autovehicul: VEHICUL_4X4
+, 
+ Autovehicul Dacia Duster
+Cod identificare: e951a617-ab26-4ccc-97c2-1d99ce0e33ed
+Utilizare: TRANSPORT
+Tara de provenienta: Romania
+Blindat: false
+Numar locuri: 5
+Autonomie (km): 400
+Viteza maxima (km/h): 140
+Categorie: B
+Suport remorca: false
+Tip autovehicul: VEHICUL_4X4
+]
+
+ Mihai Romica
+Cod identificare: 665a284f-0fbf-41df-80bf-a94a7dc22c7f
+Grad: OFITER
+Titlu: GENERAL_DE_BRIGADA
+Data nasterii: Thu Oct 23 20:03:45 EET 1975
+Gestiune artilerie: 
+[
+ Artilerie Gepard SPAAG
+Cod identificare: 918175bc-3a0c-44bc-9fef-dd8ec599fb2b
+Tip: MOBIL
+Categorie: ANTIAERIANA
+Calibru (mm): 35.0
+Bataie maxima (km): 5
+Tara de provenienta: Romania
+]
+Gestiune infanterie: 
+[
+ Infanterie Barret M82
+Cod identificare: 2d6014c8-7a81-42fb-a692-6c772a2c2649
+Categorie: PUSTI_LUNETA
+Calibru (mm): 0.5
+Suport luneta: true
+Tara de provenienta: Statele Unite ale Americii
+]
+Gestiune echipament special: 
+[
+ EchipamentSpecial Zodiac MK3
+Cod identificare: 9c4e03d7-bcd2-4857-899e-e0c5247682af
+Tip: BARCA_ASALT
+Model: Zodiac MK3
+Tara de provenienta: Franta
+]
+Gestiune vehicule: 
+[
+ Blindat HUMVEE
+Cod identificare: fd829129-4186-459c-90c4-2ab2cbb7d5bc
+Utilizare: TRANSPORT
+Tara de provenienta: Statele Unite ale Americii
+Blindat: true
+Numar locuri: 4
+Autonomie (km): 443
+Viteza maxima (km/h): 125
+Suport remorca: true
+Suport arma: false
+Tip arma: -
+]
+
+ Mihailescu Darius
+Cod identificare: ce081d07-c47e-40bd-b1c2-60a799ae1830
+Grad: OFITER
+Titlu: CAPITAN
+Data nasterii: Thu Jan 14 20:03:45 EET 1982
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+[
+ Infanterie PA md. 64
+Cod identificare: ee8516a7-27a8-4120-a4a9-6d97d06de2a1
+Categorie: PUSTI_MITRALIERE
+Calibru (mm): 7.62
+Suport luneta: true
+Tara de provenienta: Romania
+]
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+null
+
+ Ursaciuc Denis
+Cod identificare: 3037b81a-02d9-4849-b97e-4b14cbbfa646
+Grad: MAISTRU_MILITAR
+Titlu: SERGENT
+Data nasterii: Fri Aug 04 20:03:45 EEST 1995
+Gestiune artilerie: 
+null
+Gestiune infanterie: 
+[
+ Infanterie Heckler G63
+Cod identificare: 1f3ec786-425e-4701-9269-e2a6f1539462
+Categorie: ARME_ASALT
+Calibru (mm): 5.56
+Suport luneta: true
+Tara de provenienta: Germania
+, 
+ Infanterie Steyr AUG
+Cod identificare: 656c8a71-cb16-4e93-a918-cec6c17c9562
+Categorie: ARME_ASALT
+Calibru (mm): 7.65
+Suport luneta: false
+Tara de provenienta: Austria
+]
+Gestiune echipament special: 
+null
+Gestiune vehicule: 
+[
+ Transportor TAB-77
+Cod identificare: 6d4db8ae-2da4-4946-9445-90f195c38d3b
+Utilizare: TRANSPORT
+Tara de provenienta: Romania
+Blindat: true
+Numar locuri: 11
+Autonomie (km): 550
+Viteza maxima (km/h): 80
+Armament principal: mitralieră grea MTB 14.5 mm
+Armament secundar: mitralieră PKT 7.62 mm
+Tip vehicul: ROTI
+]
+
+
+

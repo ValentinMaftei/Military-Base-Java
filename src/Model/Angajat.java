@@ -121,7 +121,7 @@ public final class Angajat implements Comparable<Angajat>{
     }
 
     public String getDetaliiAngajat() {
-        return "\n Angajat " + nume + " " + prenume + '\n' +
+        return "\n " + nume + " " + prenume + '\n' +
                 "Cod identificare: " + codIdentificare + '\n' +
                 "Grad: " + grad + '\n' +
                 "Titlu: " + titlu + '\n' +

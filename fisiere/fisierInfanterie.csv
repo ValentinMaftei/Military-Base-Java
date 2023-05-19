@@ -1,0 +1,15 @@
+M4A1,ARME_ASALT,Statele Unite ale Americii,5.56,true
+Pistol MD 2000,PISTOALE,Romania,9,false
+Glock 17,PISTOALE,Austria,9,false
+Pistol TT-Cugir,PISTOALE,Romania,7.65,false
+Uzi,PISTOALE_MITRALIERA,Israel,9,false
+HK UMP9,PISTOALE_MITRALIERA,Germania,9,true
+PA md. 86,ARME_ASALT,Romania,5.45,true
+Heckler G63,ARME_ASALT,Germania,5.56,true
+Steyr AUG,ARME_ASALT,Austria,7.65,false
+PA md. 64,PUSTI_MITRALIERE,Romania,7.62,true
+M249,PUSTI_MITRALIERE,Statele Unite ale Americii,5.56,true
+DSK,MITRALIERE_GRELE,Romania,12.7,false
+PSL,PUSTI_LUNETA,Romania,7.62,true
+Barret M82,PUSTI_LUNETA,Statele Unite ale Americii,.50,true
+RKG-3,GRENADE,Romania,0,false

@@ -1,0 +1,6 @@
+Land Rover Defender,TRANSPORT,Regatul Unit,false,5,400,140,B,true,VEHICUL_4X4
+Volkswagen Transporter,TRANSPORT,Germania,false,9,600,160,B,false,FURGONETA
+Mercedes-Benz Sprinter,TRANSPORT,Germania,false,3,700,170,CE,true,FURGONETA
+Dacia Duster,TRANSPORT,Romania,false,5,400,140,B,false,VEHICUL_4X4
+Polaris ATV,TRANSPORT,Statele Unite ale Americii,false,4,100,90,A,true,ATV
+IVECO,TRANSPORT,Italia,true,3,500,110,DE,true,AUTOCAMION
