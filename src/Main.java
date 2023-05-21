@@ -243,10 +243,15 @@ public class Main {
         TransportorRepository transportorRepository = new TransportorRepository(dataBaseConfiguration);
         //System.out.println("Lista transportoare: ");
         //System.out.println(transportorRepository.getAllTransportoare() + "\n\n");
+        //System.out.println(transportorRepository.getTransportorById(1));
+        //System.out.println(transportorRepository.getTransportorByModel("TAB-77"));
+        //transportorRepository.deleteTransportorById(1);
+        //transportorRepository.deleteTransportorByDenumire("MLVM");
 
         BlindatRepository blindatRepository = new BlindatRepository(dataBaseConfiguration);
         //System.out.println("Lista blindate: ");
         //System.out.println(blindatRepository.getAllBlindate() + "\n\n");
+
 
         AutovehiculRepository autovehiculRepository = new AutovehiculRepository(dataBaseConfiguration);
         //System.out.println("Lista autovehicule: ");

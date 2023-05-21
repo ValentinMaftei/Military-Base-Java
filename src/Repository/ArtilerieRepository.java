@@ -83,13 +83,11 @@ public class ArtilerieRepository {
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ARTILERIE_BY_ID);
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de artilerie a fost sters!");
     }
 
     public void deleteArtilerieByModel(String model) throws SQLException{
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ARTILERIE_BY_MODEL);
         preparedStatement.setString(1, model);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de artilerie a fost sters!");
     }
 }

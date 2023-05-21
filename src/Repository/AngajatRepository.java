@@ -76,7 +76,6 @@ public class AngajatRepository {
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ANGAJAT_BY_ID);
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
-        System.out.println("Angajatul a fost sters!");
     }
 
     public void deleteAngajatByName(String lastName, String firstName) throws SQLException{
@@ -84,6 +83,5 @@ public class AngajatRepository {
         preparedStatement.setString(1, lastName);
         preparedStatement.setString(2, firstName);
         preparedStatement.executeUpdate();
-        System.out.println("Angajatul a fost sters!");
     }
 }

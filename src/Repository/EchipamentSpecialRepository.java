@@ -73,14 +73,12 @@ public class EchipamentSpecialRepository {
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_SPECIAL_BY_ID);
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de echipament special a fost sters!");
     }
 
     public void deleteEchipamentSpecialByModel(String model) throws SQLException{
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_SPECIAL_BY_NAME);
         preparedStatement.setString(1, model);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de echipament special a fost sters!");
     }
 
 }

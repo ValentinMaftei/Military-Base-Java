@@ -80,13 +80,11 @@ public class InfanterieRepository {
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_INFANTERIE_BY_ID);
         preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de infanterie a fost sters!");
     }
 
     public void deleteInfanterieByModel(String model) throws SQLException{
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_INFANTERIE_BY_NAME);
         preparedStatement.setString(1, model);
         preparedStatement.executeUpdate();
-        System.out.println("Elementul de infanterie a fost sters!");
     }
 }
