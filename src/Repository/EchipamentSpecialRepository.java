@@ -81,4 +81,15 @@ public class EchipamentSpecialRepository {
         preparedStatement.executeUpdate();
     }
 
+    public void deleteAllSpeciale() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_SPECIAL);
+        preparedStatement.executeUpdate();
+    }
+    public void insertEchipamentSpecial(String tip, String model, String taraProvenienta) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_SPECIAL);
+        preparedStatement.setString(1, tip);
+        preparedStatement.setString(2, model);
+        preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.executeUpdate();
+    }
 }

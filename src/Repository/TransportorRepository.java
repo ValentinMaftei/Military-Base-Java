@@ -101,4 +101,26 @@ public class TransportorRepository {
         preparedStatement.setString(1, denumire);
         preparedStatement.executeUpdate();
     }
+
+    public void deleteAllTransportoare() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_TRANSPORTOARE);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertTransportor(String denumire, String utilizare, String taraProvenienta, boolean blinat, int nrLocuri,
+                                  int autonomie, int vitezaMaxima, String armamentPrincipal, String armamentSecundar,
+                                  String tip) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_TRANSPORTOR);
+        preparedStatement.setString(1, denumire);
+        preparedStatement.setString(2, utilizare);
+        preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.setBoolean(4, blinat);
+        preparedStatement.setInt(5, nrLocuri);
+        preparedStatement.setInt(6, autonomie);
+        preparedStatement.setInt(7, vitezaMaxima);
+        preparedStatement.setString(8, armamentPrincipal);
+        preparedStatement.setString(9, armamentSecundar);
+        preparedStatement.setString(10, tip);
+        preparedStatement.executeUpdate();
+    }
 }

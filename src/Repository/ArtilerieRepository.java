@@ -90,4 +90,20 @@ public class ArtilerieRepository {
         preparedStatement.setString(1, model);
         preparedStatement.executeUpdate();
     }
+
+    public void deleteAllArtilerie() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_ARTILERIE);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertArtilerie(String model, String categorie, String tip, float calibru, int bataieMaxima, String taraProvenienta) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_ARTILERIE);
+        preparedStatement.setString(1, model);
+        preparedStatement.setString(2, categorie);
+        preparedStatement.setString(3, tip);
+        preparedStatement.setFloat(4, calibru);
+        preparedStatement.setInt(5, bataieMaxima);
+        preparedStatement.setString(6, taraProvenienta);
+        preparedStatement.executeUpdate();
+    }
 }

@@ -84,4 +84,19 @@ public class AngajatRepository {
         preparedStatement.setString(2, firstName);
         preparedStatement.executeUpdate();
     }
+
+    public void deleteAllAngajati() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_ANGAJATI);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertAngajat(String nume, String prenume, Date dataNastere, String grad, String functie) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_ANGAJAT);
+        preparedStatement.setString(1, nume);
+        preparedStatement.setString(2, prenume);
+        preparedStatement.setDate(3, dataNastere);
+        preparedStatement.setString(4, grad);
+        preparedStatement.setString(5, functie);
+        preparedStatement.executeUpdate();
+    }
 }

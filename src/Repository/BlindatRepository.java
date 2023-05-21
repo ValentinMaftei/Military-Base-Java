@@ -95,9 +95,33 @@ public class BlindatRepository {
         preparedStatement.executeUpdate();
     }
 
-    public void deleteTransportorByDenumire(String denumire) throws SQLException{
+    public void deleteBlindatByDenumire(String denumire) throws SQLException{
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_BLINDATE_BY_DENUMIRE);
         preparedStatement.setString(1, denumire);
+        preparedStatement.executeUpdate();
+    }
+
+    public void deleteAllBlindate() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_BLINDATE);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertBlindat(String denumire, String utilizare, String taraProvenienta, boolean blindat, int nrLocuri,
+                              int autonomie, int vitezaMaxima, boolean suportRemorca, boolean suportArma, String arma) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_BLINDAT);
+        preparedStatement.setString(1, denumire);
+        preparedStatement.setString(2, utilizare);
+        preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.setBoolean(4, blindat);
+        preparedStatement.setInt(5, nrLocuri);
+        preparedStatement.setInt(6, autonomie);
+        preparedStatement.setInt(7, vitezaMaxima);
+        preparedStatement.setBoolean(8, suportRemorca);
+        preparedStatement.setBoolean(9, suportArma);
+        if (!suportArma){
+            arma = null;
+        }
+        preparedStatement.setString(10, arma);
         preparedStatement.executeUpdate();
     }
 }

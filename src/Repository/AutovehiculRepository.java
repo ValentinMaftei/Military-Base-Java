@@ -49,6 +49,7 @@ public class AutovehiculRepository {
     public List<Autovehicul> getAutovehiculByModel(String model) throws SQLException{
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_AUTOVEHICULE_BY_DENUMIRE);
         List<Autovehicul> listAutovehicule = new ArrayList<>();
+        preparedStatement.setString(1, model);
         ResultSet resultSet = preparedStatement.executeQuery();
         while (resultSet.next()){
             Autovehicul autovehicul = new Autovehicul(resultSet.getInt("codIdentificare"),
@@ -71,7 +72,7 @@ public class AutovehiculRepository {
     }
 
     public Autovehicul getAutovehiculById(int id) throws SQLException{
-        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_AUTOVEHICUL_BY_ID);
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_AUTOVEHICUL_BY_ID);
         preparedStatement.setInt(1, id);
         Autovehicul autovehicul = new Autovehicul();
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -79,7 +80,7 @@ public class AutovehiculRepository {
             autovehicul.setCodIdentificare(resultSet.getInt("codIdentificare"));
             autovehicul.setIdGestionar(resultSet.getInt("idGestionarAutovehicul"));
             autovehicul.setDenumire(resultSet.getString("denumire"));
-            autovehicul.setUtilizare(UtilizareVehicul.valueOf(resultSet.getString("utilizare"));
+            autovehicul.setUtilizare(UtilizareVehicul.valueOf(resultSet.getString("utilizare")));
             autovehicul.setTaraProvenienta(resultSet.getString("taraProvenienta"));
             autovehicul.setBlindat(resultSet.getBoolean("blindat"));
             autovehicul.setNrLocuri(resultSet.getInt("nrLocuri"));
@@ -102,6 +103,26 @@ public class AutovehiculRepository {
         PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_AUTOVEHICULE_BY_DENUMIRE);
         preparedStatement.setString(1, denumire);
         preparedStatement.executeUpdate();
+    }
 
+    public void deleteAllAutovehicule() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_AUTOVEHICULE);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertAutovehicul(String denumire, String utilizare, String taraProvenienta, boolean blindat, int nrLocuri,
+                                  int autonomie, int vitezaMaxima, String categorie, boolean suportRemorca, String tip) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_AUTOVEHICUL);
+        preparedStatement.setString(1, denumire);
+        preparedStatement.setString(2, utilizare);
+        preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.setBoolean(4, blindat);
+        preparedStatement.setInt(5, nrLocuri);
+        preparedStatement.setInt(6, autonomie);
+        preparedStatement.setInt(7, vitezaMaxima);
+        preparedStatement.setString(8, categorie);
+        preparedStatement.setBoolean(9, suportRemorca);
+        preparedStatement.setString(10, tip);
+        preparedStatement.executeUpdate();
     }
 }

@@ -215,6 +215,10 @@ public class Main {
         //System.out.println(angajatRepository.getAngajatById(1));
         //angajatRepository.deleteAngajatById(12);
         //angajatRepository.deleteAngajatByName("Alexa", "Marin");
+        //Calendar calendar = Calendar.getInstance();
+        //calendar.set(1980, Calendar.MAY, 17);
+        //java.sql.Date dataNastere = new java.sql.Date(calendar.getTime().getTime());
+        //angajatRepository.insertAngajat("Cordea", "Andrei", dataNastere, "OFITER", "CAPITAN");
 
         ArtilerieRepository artilerieRepository = new ArtilerieRepository(dataBaseConfiguration);
         //System.out.println("Lista elemente de artilerie: ");
@@ -223,6 +227,8 @@ public class Main {
         //System.out.println(artilerieRepository.getArtilerieById(1));
         //artilerieRepository.deleteArtilerieById(7);
         //artilerieRepository.deleteArtilerieByModel("M 1988");
+        //artilerieRepository.insertArtilerie("Mim-104 Patriot","ANTIAERIANA", "MOBIL", 90, 12, "Statele Unite ale Americii");
+
 
         InfanterieRepository infanterieRepository = new InfanterieRepository(dataBaseConfiguration);
         //System.out.println("Lista elemente de infanterie: ");
@@ -231,6 +237,7 @@ public class Main {
         //System.out.println(infanterieRepository.getInfanterieById(1));
         //infanterieRepository.deleteInfanterieByModel("RKG-3");
         //infanterieRepository.deleteInfanterieById(17);
+        //infanterieRepository.insertInfanterie("M4A1", "ARME_ASALT", "Statele Unite ale Americii", 5.56F, true);
 
         EchipamentSpecialRepository echipamentSpecialRepository = new EchipamentSpecialRepository(dataBaseConfiguration);
         //System.out.println("Lista echipament special:");
@@ -239,6 +246,7 @@ public class Main {
         //System.out.println(echipamentSpecialRepository.getEchipamentSpecialById(1));
         //echipamentSpecialRepository.deleteEchipamentSpecialById(3);
         //echipamentSpecialRepository.deleteEchipamentSpecialByModel("Zodiac MK3");
+        //echipamentSpecialRepository.insertEchipamentSpecial("BARCA_ASALT", "BP-10", "Romania");
 
         TransportorRepository transportorRepository = new TransportorRepository(dataBaseConfiguration);
         //System.out.println("Lista transportoare: ");
@@ -247,16 +255,27 @@ public class Main {
         //System.out.println(transportorRepository.getTransportorByModel("TAB-77"));
         //transportorRepository.deleteTransportorById(1);
         //transportorRepository.deleteTransportorByDenumire("MLVM");
+        //transportorRepository.insertTransportor("TAB B33 Zimbru", "TRANSPORT", "Romania", true,
+        //        10, 700, 85, "mitralieră grea KPVT 14.5 mm",
+        //        "mitralieră PKT 7.62 mm", "ROTI");
 
         BlindatRepository blindatRepository = new BlindatRepository(dataBaseConfiguration);
         //System.out.println("Lista blindate: ");
         //System.out.println(blindatRepository.getAllBlindate() + "\n\n");
-
+        //System.out.println(blindatRepository.getBlindatById(1));
+        //System.out.println(blindatRepository.getBlindatByDenumire("URO VAMTAAC"));
+        //blindatRepository.deleteBlindatByDenumire("WOLF");
+        //blindatRepository.insertBlindat("URO VAMTAAC", "TRANSPORT", "Spania", true,
+        //        4, 600, 135, true, false, "");
 
         AutovehiculRepository autovehiculRepository = new AutovehiculRepository(dataBaseConfiguration);
         //System.out.println("Lista autovehicule: ");
         //System.out.println(autovehiculRepository.getAllAutovehicule() + "\n\n");*/
-
-
+        //System.out.println(autovehiculRepository.getAutovehiculById(1));
+        //System.out.println(autovehiculRepository.getAutovehiculByModel("Land Rover Defender"));
+        //autovehiculRepository.deleteAutovehiculById(6);
+        //autovehiculRepository.deleteAutovehiculByDenumire("IVECO");
+        //autovehiculRepository.insertAutovehicul("IVECO","TRANSPORT","Italia",true,
+        //        3,500,110,"DE",true,"AUTOCAMION");
     }
 }

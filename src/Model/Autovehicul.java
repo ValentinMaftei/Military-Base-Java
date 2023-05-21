@@ -10,6 +10,8 @@ public final class Autovehicul extends Vehicul{
     private boolean suportRemorca;
     private TipAutovehicul tip;
 
+    public Autovehicul(){}
+
     public Autovehicul(int codIdentificare, int idGestionar, String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
                        int nrLocuri, int autonomie, int vitezaMaxima, CategorieAutovehicule categoriePermis,
                        boolean suportRemorca, TipAutovehicul tip) {

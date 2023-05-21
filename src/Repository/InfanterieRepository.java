@@ -87,4 +87,19 @@ public class InfanterieRepository {
         preparedStatement.setString(1, model);
         preparedStatement.executeUpdate();
     }
+
+    public void deleteAllInfanterie() throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_ALL_INFANTERIE);
+        preparedStatement.executeUpdate();
+    }
+
+    public void insertInfanterie(String model, String categorie, String taraProvenienta, float calibru, boolean suportLuneta) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_INSERT_INFANTERIE);
+        preparedStatement.setString(1, model);
+        preparedStatement.setString(2, categorie);
+        preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.setFloat(4, calibru);
+        preparedStatement.setBoolean(5, suportLuneta);
+        preparedStatement.executeUpdate();
+    }
 }
