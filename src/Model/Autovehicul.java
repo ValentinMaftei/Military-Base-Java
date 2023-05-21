@@ -10,10 +10,10 @@ public final class Autovehicul extends Vehicul{
     private boolean suportRemorca;
     private TipAutovehicul tip;
 
-    public Autovehicul(String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
+    public Autovehicul(int codIdentificare, int idGestionar, String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
                        int nrLocuri, int autonomie, int vitezaMaxima, CategorieAutovehicule categoriePermis,
                        boolean suportRemorca, TipAutovehicul tip) {
-        super(denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
+        super(codIdentificare, idGestionar, denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
         this.categoriePermis = categoriePermis;
         this.suportRemorca = suportRemorca;
         this.tip = tip;
@@ -45,7 +45,7 @@ public final class Autovehicul extends Vehicul{
 
     @Override
     public String toString() {
-        return "\n Autovehicul " + getDenumire() + '\n' +
+        return "\n" + getDenumire() + '\n' +
                 "Cod identificare: " + getCodIdentificare() + '\n' +
                 "Utilizare: " + getUtilizare() + '\n' +
                 "Tara de provenienta: " + getTaraProvenienta() + '\n' +

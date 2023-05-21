@@ -8,10 +8,10 @@ public final class Blindat extends Vehicul{
     private String arma;
 
     public Blindat(){}
-    public Blindat(String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
+    public Blindat(int codIdentificare, int idGestionar, String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
                    int nrLocuri, int autonomie, int vitezaMaxima, boolean suportRemorca,
                    boolean suportArma, String arma) {
-        super(denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
+        super(codIdentificare, idGestionar, denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
         this.suportRemorca = suportRemorca;
         this.suportArma = suportArma;
         this.arma = arma;
@@ -43,7 +43,7 @@ public final class Blindat extends Vehicul{
 
     @Override
     public String toString() {
-        return "\n Blindat " + getDenumire() + '\n' +
+        return "\n" + getDenumire() + '\n' +
                 "Cod identificare: " + getCodIdentificare() + '\n' +
                 "Utilizare: " + getUtilizare() + '\n' +
                 "Tara de provenienta: " + getTaraProvenienta() + '\n' +

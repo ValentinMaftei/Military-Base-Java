@@ -34,14 +34,16 @@ public class ArtilerieServiceimpl implements ArtilerieService {
         if (logisticaArtilerie == null)
             logisticaArtilerie = new ArrayList<>();
         for (String[] line : artilerie){
-            String model = line[0];
-            CategorieArtilerie categorie = CategorieArtilerie.valueOf(line[1]);
-            TipArtilerie tip = TipArtilerie.valueOf(line[2]);
-            int calibru = Integer.parseInt(line[3]);
-            int bataieMaxima = Integer.parseInt(line[4]);
-            String taraProvenienta = line[5];
+            int id = Integer.parseInt(line[0]);
+            int idGestionar = Integer.parseInt(line[1]);
+            String model = line[2];
+            CategorieArtilerie categorie = CategorieArtilerie.valueOf(line[3]);
+            TipArtilerie tip = TipArtilerie.valueOf(line[4]);
+            int calibru = Integer.parseInt(line[5]);
+            int bataieMaxima = Integer.parseInt(line[6]);
+            String taraProvenienta = line[7];
 
-            Artilerie artilerieNou = new Artilerie(model, categorie, tip, calibru, bataieMaxima, taraProvenienta);
+            Artilerie artilerieNou = new Artilerie(id, idGestionar, model, categorie, tip, calibru, bataieMaxima, taraProvenienta);
             AuditActionsSingleton.INSTANCE.Action("Adăugare element artilerie");
             logisticaArtilerie.add(artilerieNou);
         }

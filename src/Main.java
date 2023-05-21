@@ -1,16 +1,23 @@
+import Config.DataBaseConfiguration;
 import Model.*;
+import Repository.*;
 import Service.BlindateService;
 import Service.TransportoareService;
 import Service.VehiculeService;
 import Service.impl.*;
 import Utile.*;
 
+import javax.xml.crypto.Data;
+import javax.xml.transform.Result;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        SingletonFileReaderWriter singletonFileReaderWriter = SingletonFileReaderWriter.INSTANCE;
 
+        SingletonFileReaderWriter singletonFileReaderWriter = SingletonFileReaderWriter.INSTANCE;
+        /*
         Calendar calendar = Calendar.getInstance();
         calendar.set(2002, Calendar.JANUARY, 23);
         Date dataNastere = calendar.getTime();
@@ -86,10 +93,10 @@ public class Main {
             vehiculeService.addLogisticaVehicul(autovehicul);
         }
 
-        System.out.println("Lista logistică vehicule: ");
+        *//*System.out.println("Lista logistică vehicule: ");
         System.out.println(vehiculeService.getLogisticaVehicule());
         System.out.println();
-        System.out.println();
+        System.out.println();*//*
 
 
         ArtilerieServiceimpl artilerieServiceimpl = new ArtilerieServiceimpl();
@@ -97,10 +104,10 @@ public class Main {
         List<String[]> fisierArtilerie = singletonFileReaderWriter.read(csvFileArtilerie);
         artilerieServiceimpl.addLogisticaArtilerie(fisierArtilerie);
 
-        System.out.println("Lista logistică artilerie: ");
+        *//*System.out.println("Lista logistică artilerie: ");
         System.out.println(artilerieServiceimpl.getLogisticaArtilerie());
         System.out.println();
-        System.out.println();
+        System.out.println();*//*
 
 
         EchipamentSpecialServiceimpl echipamentSpecialServiceimpl = new EchipamentSpecialServiceimpl();
@@ -108,10 +115,10 @@ public class Main {
         List<String[]> fisierEchipamentSpecial = SingletonFileReaderWriter.INSTANCE.read(csvFileSpecial);
         echipamentSpecialServiceimpl.addLogisticaEchipamentS(fisierEchipamentSpecial);
 
-        System.out.println("Lista logistica echipament special: ");
+        *//*System.out.println("Lista logistica echipament special: ");
         System.out.println(echipamentSpecialServiceimpl.getLogisticaEchipamentSpecial());
         System.out.println();
-        System.out.println();
+        System.out.println();*//*
 
 
         InfanterieServiceimpl infanterieServiceimpl = new InfanterieServiceimpl();
@@ -120,10 +127,10 @@ public class Main {
         infanterieServiceimpl.addLogisticaInfanterie(fisierInfanterie);
 
 
-        System.out.println("Lista logistica infanterie: ");
+        *//*System.out.println("Lista logistica infanterie: ");
         System.out.println(infanterieServiceimpl.getLogisticaInfanterie());
         System.out.println();
-        System.out.println();
+        System.out.println();*//*
 
         AngajatiServiceimpl angajatiServiceimpl = new AngajatiServiceimpl();
         angajatiServiceimpl.addAngajat(angajat1);
@@ -171,8 +178,8 @@ public class Main {
 
 
         // Afisam lista sumara a angajatilor.
-        System.out.println("Lista angajati batalion: ");
-        System.out.println(angajatiServiceimpl.getAngajati());
+        *//*System.out.println("Lista angajati batalion: ");
+        System.out.println(angajatiServiceimpl.getAngajati());*//*
 
         // In caz ca vrem sa afisam detaliat informatii despre angajat
         // System.out.println(angajat1.getDetaliiAngajat());
@@ -198,5 +205,53 @@ public class Main {
         }
 
         singletonFileReaderWriter.writeToCSV("fisiere/fisierAngajatiDetaliat.csv", angajatiDetaliat);
+        */
+
+        DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
+        AngajatRepository angajatRepository = new AngajatRepository(dataBaseConfiguration);
+        //System.out.println("Lista angajati: ");
+        //System.out.println(angajatRepository.getAllAngajati() + "\n\n");
+        //System.out.println(angajatRepository.getAngajatiByName("Maftei", "Valentin"));
+        //System.out.println(angajatRepository.getAngajatById(1));
+        //angajatRepository.deleteAngajatById(12);
+        //angajatRepository.deleteAngajatByName("Alexa", "Marin");
+
+        ArtilerieRepository artilerieRepository = new ArtilerieRepository(dataBaseConfiguration);
+        //System.out.println("Lista elemente de artilerie: ");
+        //System.out.println(artilerieRepository.getAllArtilerie() + "\n\n");
+        //System.out.println(artilerieRepository.getArtilerieByModel("M 1988"));
+        //System.out.println(artilerieRepository.getArtilerieById(1));
+        //artilerieRepository.deleteArtilerieById(7);
+        //artilerieRepository.deleteArtilerieByModel("M 1988");
+
+        InfanterieRepository infanterieRepository = new InfanterieRepository(dataBaseConfiguration);
+        //System.out.println("Lista elemente de infanterie: ");
+        //System.out.println(infanterieRepository.getAllInfanterie() + "\n\n");
+        //System.out.println(infanterieRepository.getInfanterieByModel("M4A1"));
+        //System.out.println(infanterieRepository.getInfanterieById(1));
+        //infanterieRepository.deleteInfanterieByModel("RKG-3");
+        //infanterieRepository.deleteInfanterieById(17);
+
+        EchipamentSpecialRepository echipamentSpecialRepository = new EchipamentSpecialRepository(dataBaseConfiguration);
+        //System.out.println("Lista echipament special:");
+        //System.out.println(echipamentSpecialRepository.getAllEchipamentSpecial() + "\n\n");
+        //System.out.println(echipamentSpecialRepository.getEchipamentSpecialByModel("BP-10"));
+        //System.out.println(echipamentSpecialRepository.getEchipamentSpecialById(1));
+        //echipamentSpecialRepository.deleteEchipamentSpecialById(3);
+        //echipamentSpecialRepository.deleteEchipamentSpecialByModel("Zodiac MK3");
+
+        TransportorRepository transportorRepository = new TransportorRepository(dataBaseConfiguration);
+        //System.out.println("Lista transportoare: ");
+        //System.out.println(transportorRepository.getAllTransportoare() + "\n\n");
+
+        BlindatRepository blindatRepository = new BlindatRepository(dataBaseConfiguration);
+        //System.out.println("Lista blindate: ");
+        //System.out.println(blindatRepository.getAllBlindate() + "\n\n");
+
+        AutovehiculRepository autovehiculRepository = new AutovehiculRepository(dataBaseConfiguration);
+        //System.out.println("Lista autovehicule: ");
+        //System.out.println(autovehiculRepository.getAllAutovehicule() + "\n\n");*/
+
+
     }
 }

@@ -5,20 +5,22 @@ import Utile.TipSpeciale;
 import java.util.UUID;
 
 public final class EchipamentSpecial {
-    private UUID codIdentificare;
+    private int codIdentificare;
+    private int idGestionar;
     private TipSpeciale tip;
     private String model;
     private String taraProvenienta;
 
     public EchipamentSpecial(){}
-    public EchipamentSpecial(TipSpeciale tip, String model, String taraProvenienta) {
-        this.codIdentificare = UUID.randomUUID();
+    public EchipamentSpecial(int codIdentificare, int idGestionar, TipSpeciale tip, String model, String taraProvenienta) {
+        this.codIdentificare = codIdentificare;
+        this.idGestionar = idGestionar;
         this.tip = tip;
         this.model = model;
         this.taraProvenienta = taraProvenienta;
     }
 
-    public UUID getCodIdentificare() {
+    public int getCodIdentificare() {
         return codIdentificare;
     }
 
@@ -28,6 +30,18 @@ public final class EchipamentSpecial {
 
     public void setTip(TipSpeciale tip) {
         this.tip = tip;
+    }
+
+    public void setCodIdentificare(int codIdentificare) {
+        this.codIdentificare = codIdentificare;
+    }
+
+    public int getIdGestionar() {
+        return idGestionar;
+    }
+
+    public void setIdGestionar(int idGestionar) {
+        this.idGestionar = idGestionar;
     }
 
     public String getModel() {
@@ -48,10 +62,9 @@ public final class EchipamentSpecial {
 
     @Override
     public String toString() {
-        return "\n EchipamentSpecial " + model + '\n' +
+        return "\n" + model + '\n' +
                 "Cod identificare: " + codIdentificare + '\n' +
                 "Tip: " + tip + '\n' +
-                "Model: " + model + '\n' +
                 "Tara de provenienta: " + taraProvenienta + '\n';
     }
 }

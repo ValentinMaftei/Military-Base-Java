@@ -20,18 +20,20 @@ public class AutovehiculeServiceimpl implements AutovehiculeService {
             listaAutovehicule = new ArrayList<>();
 
         for (String[] line : autovehicule){
-            String denumire = line[0];
-            UtilizareVehicul utilizareVehicul = UtilizareVehicul.valueOf(line[1]);
-            String taraProvenienta = line[2];
-            boolean blindat = Boolean.parseBoolean(line[3]);
-            int nrLocuri = Integer.parseInt(line[4]);
-            int autonomie = Integer.parseInt(line[5]);
-            int vitezaMaxima = Integer.parseInt(line[6]);
-            CategorieAutovehicule categorieAutovehicule = CategorieAutovehicule.valueOf(line[7]);
-            boolean suportRemorca = Boolean.parseBoolean(line[8]);
-            TipAutovehicul tipAutovehicul = TipAutovehicul.valueOf(line[9]);
+            int id = Integer.parseInt(line[0]);
+            int idGestionar = Integer.parseInt(line[1]);
+            String denumire = line[2];
+            UtilizareVehicul utilizareVehicul = UtilizareVehicul.valueOf(line[3]);
+            String taraProvenienta = line[4];
+            boolean blindat = Boolean.parseBoolean(line[5]);
+            int nrLocuri = Integer.parseInt(line[6]);
+            int autonomie = Integer.parseInt(line[7]);
+            int vitezaMaxima = Integer.parseInt(line[8]);
+            CategorieAutovehicule categorieAutovehicule = CategorieAutovehicule.valueOf(line[9]);
+            boolean suportRemorca = Boolean.parseBoolean(line[10]);
+            TipAutovehicul tipAutovehicul = TipAutovehicul.valueOf(line[11]);
 
-            Autovehicul autovehicul = new Autovehicul(denumire, utilizareVehicul, taraProvenienta, blindat, nrLocuri,
+            Autovehicul autovehicul = new Autovehicul(id, idGestionar,denumire, utilizareVehicul, taraProvenienta, blindat, nrLocuri,
                     autonomie, vitezaMaxima, categorieAutovehicule, suportRemorca, tipAutovehicul);
 
             AuditActionsSingleton.INSTANCE.Action("Adăugare autovehicul");

@@ -32,13 +32,15 @@ public class InfanterieServiceimpl implements InfanterieService {
         if (logisticaInfanterie == null)
             logisticaInfanterie = new ArrayList<>();
         for (String[] line : infanterie){
-            String model = line[0];
-            CategorieInfanterie categorieInfanterie = CategorieInfanterie.valueOf(line[1]);
-            String taraProvenienta = line[2];
-            float calibru = Float.parseFloat(line[3]);
-            boolean suportLuneta = Boolean.parseBoolean(line[4]);
+            int id = Integer.parseInt(line[0]);
+            int idGestionar = Integer.parseInt(line[1]);
+            String model = line[2];
+            CategorieInfanterie categorieInfanterie = CategorieInfanterie.valueOf(line[3]);
+            String taraProvenienta = line[4];
+            float calibru = Float.parseFloat(line[5]);
+            boolean suportLuneta = Boolean.parseBoolean(line[6]);
 
-            Infanterie infanterieNou = new Infanterie(model, categorieInfanterie, taraProvenienta, calibru, suportLuneta);
+            Infanterie infanterieNou = new Infanterie(id, idGestionar, model, categorieInfanterie, taraProvenienta, calibru, suportLuneta);
             AuditActionsSingleton.INSTANCE.Action("Adăugare element infanterie");
             logisticaInfanterie.add(infanterieNou);
         }

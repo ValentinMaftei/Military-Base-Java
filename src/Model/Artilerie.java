@@ -6,7 +6,8 @@ import Utile.TipArtilerie;
 import java.util.UUID;
 
 public final class Artilerie {
-    private UUID codIdentificare;
+    private int codIdentificare;
+    private int idGestionar;
     private String model;
     private CategorieArtilerie categorie;
     private TipArtilerie tip;
@@ -15,8 +16,9 @@ public final class Artilerie {
     private String taraProvenienta;
 
     public Artilerie(){}
-    public Artilerie(String model, CategorieArtilerie categorie, TipArtilerie tip, float calibru, int bataieMaxima, String taraProvenienta) {
-        this.codIdentificare = UUID.randomUUID();
+    public Artilerie(int codIdentificare, int idGestionar, String model, CategorieArtilerie categorie, TipArtilerie tip, float calibru, int bataieMaxima, String taraProvenienta) {
+        this.codIdentificare = codIdentificare;
+        this.idGestionar = idGestionar;
         this.model = model;
         this.categorie = categorie;
         this.tip = tip;
@@ -24,7 +26,20 @@ public final class Artilerie {
         this.bataieMaxima = bataieMaxima;
         this.taraProvenienta = taraProvenienta;
     }
-    public UUID getCodIdentificare(){
+
+    public void setCodIdentificare(int codIdentificare) {
+        this.codIdentificare = codIdentificare;
+    }
+
+    public int getIdGestionar() {
+        return idGestionar;
+    }
+
+    public void setIdGestionar(int idGestionar) {
+        this.idGestionar = idGestionar;
+    }
+
+    public int getCodIdentificare(){
         return codIdentificare;
     }
 
@@ -78,7 +93,7 @@ public final class Artilerie {
 
     @Override
     public String toString() {
-        return "\n Artilerie " + model + '\n' +
+        return "\n" + model + '\n' +
                 "Cod identificare: " + codIdentificare + '\n' +
                 "Tip: " + tip + '\n' +
                 "Categorie: " + categorie + '\n' +

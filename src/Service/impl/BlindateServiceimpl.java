@@ -17,18 +17,20 @@ public class BlindateServiceimpl implements BlindateService {
             listaBlindate = new ArrayList<>();
 
         for (String[] line : blindate){
-            String model = line[0];
-            UtilizareVehicul utilizareVehicul = UtilizareVehicul.valueOf(line[1]);
-            String taraProvenienta = line[2];
-            boolean blindat = Boolean.parseBoolean(line[3]);
-            int nrLocuri = Integer.parseInt(line[4]);
-            int autonomie = Integer.parseInt(line[5]);
-            int vitezaMaxima = Integer.parseInt(line[6]);
-            boolean suportRemorca = Boolean.parseBoolean(line[7]);
-            boolean suportArma = Boolean.parseBoolean(line[8]);
-            String arma = line[9];
+            int id = Integer.parseInt(line[0]);
+            int idGestionar = Integer.parseInt(line[1]);
+            String model = line[2];
+            UtilizareVehicul utilizareVehicul = UtilizareVehicul.valueOf(line[3]);
+            String taraProvenienta = line[4];
+            boolean blindat = Boolean.parseBoolean(line[5]);
+            int nrLocuri = Integer.parseInt(line[6]);
+            int autonomie = Integer.parseInt(line[7]);
+            int vitezaMaxima = Integer.parseInt(line[8]);
+            boolean suportRemorca = Boolean.parseBoolean(line[9]);
+            boolean suportArma = Boolean.parseBoolean(line[10]);
+            String arma = line[11];
 
-            Blindat blindatNou = new Blindat(model, utilizareVehicul, taraProvenienta, blindat, nrLocuri, autonomie,
+            Blindat blindatNou = new Blindat(id, idGestionar,model, utilizareVehicul, taraProvenienta, blindat, nrLocuri, autonomie,
                     vitezaMaxima, suportRemorca, suportArma, arma);
 
             AuditActionsSingleton.INSTANCE.Action("Adăugare blindat");

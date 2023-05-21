@@ -9,10 +9,10 @@ public final class Transportor extends Vehicul{
     private TipTransportor tipVehicul;
 
     public Transportor(){}
-    public Transportor(String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
+    public Transportor(int codIdentificare, int idGestionar, String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
                        int nrLocuri, int autonomie, int vitezaMaxima, String armamentPrincipal,
                        String armamentSecundar, TipTransportor tipVehicul) {
-        super(denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
+        super(codIdentificare, idGestionar, denumire, utilizare, taraProvenienta, blindat, nrLocuri, autonomie, vitezaMaxima);
         this.armamentPrincipal = armamentPrincipal;
         this.armamentSecundar = armamentSecundar;
         this.tipVehicul = tipVehicul;
@@ -44,7 +44,7 @@ public final class Transportor extends Vehicul{
 
     @Override
     public String toString(){
-        return "\n Transportor " + getDenumire() + '\n' +
+        return "\n" + getDenumire() + '\n' +
                 "Cod identificare: " + getCodIdentificare() + '\n' +
                 "Utilizare: " + getUtilizare() + '\n' +
                 "Tara de provenienta: " + getTaraProvenienta() + '\n' +
@@ -58,4 +58,3 @@ public final class Transportor extends Vehicul{
     }
 
 }
-

@@ -3,13 +3,14 @@ package Model;
 import Utile.Functie;
 import Utile.Grad;
 
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 public final class Angajat implements Comparable<Angajat>{
-    private UUID codIdentificare;
+    private int codIdentificare;
     private String nume;
     private String prenume;
     private Date dataNastere;
@@ -22,8 +23,8 @@ public final class Angajat implements Comparable<Angajat>{
 
     public Angajat(){}
 
-    public Angajat(String nume, String prenume, Date dataNastere, Grad grad, Functie titlu) {
-        this.codIdentificare = UUID.randomUUID();
+    public Angajat(int codIdentificare, String nume, String prenume, Date dataNastere, Grad grad, Functie titlu) {
+        this.codIdentificare = codIdentificare;
         this.nume = nume;
         this.prenume = prenume;
         this.dataNastere = dataNastere;
@@ -31,7 +32,7 @@ public final class Angajat implements Comparable<Angajat>{
         this.titlu = titlu;
     }
 
-    public UUID getCodIdentificare(){
+    public int getCodIdentificare(){
         return codIdentificare;
     }
     public String getNume() {
@@ -73,6 +74,11 @@ public final class Angajat implements Comparable<Angajat>{
     public void setTitlu(Functie titlu) {
         this.titlu = titlu;
     }
+
+    public void setCodIdentificare(int codIdentificare) {
+        this.codIdentificare = codIdentificare;
+    }
+
 
     public List<Infanterie> getGestiuneInfanterie() {
         return gestiuneInfanterie;
@@ -134,7 +140,7 @@ public final class Angajat implements Comparable<Angajat>{
 
     @Override
     public String toString() {
-        return "\n Angajat " + nume + " " + prenume + '\n' +
+        return "\n" + nume + " " + prenume + '\n' +
                 "Cod identificare: " + codIdentificare + '\n' +
                 "Grad: " + grad + '\n' +
                 "Titlu: " + titlu + '\n' +

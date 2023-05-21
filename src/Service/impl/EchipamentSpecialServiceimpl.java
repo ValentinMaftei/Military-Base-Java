@@ -37,11 +37,13 @@ public class EchipamentSpecialServiceimpl implements EchipamentSpecialService {
             logisticaEchipamentSpecial = new ArrayList<>();
 
         for (String[] line : data){
-            TipSpeciale tip = TipSpeciale.valueOf(line[0]);
-            String model = line[1];
-            String taraProvenienta = line[2];
+            int id = Integer.parseInt(line[0]);
+            int idGestionar = Integer.parseInt(line[1]);
+            TipSpeciale tip = TipSpeciale.valueOf(line[2]);
+            String model = line[3];
+            String taraProvenienta = line[4];
 
-            EchipamentSpecial echipamentSpecial = new EchipamentSpecial(tip, model, taraProvenienta);
+            EchipamentSpecial echipamentSpecial = new EchipamentSpecial(id, idGestionar,tip, model, taraProvenienta);
             AuditActionsSingleton.INSTANCE.Action("Adăugare echipament special");
             logisticaEchipamentSpecial.add(echipamentSpecial);
         }

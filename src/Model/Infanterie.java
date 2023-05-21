@@ -5,7 +5,8 @@ import Utile.CategorieInfanterie;
 import java.util.UUID;
 
 public final class Infanterie {
-    private UUID codIdentificare;
+    private int codIdentificare;
+    private int idGestionar;
     private String model;
     private CategorieInfanterie categorie;
     private String taraProvenienta;
@@ -14,8 +15,10 @@ public final class Infanterie {
 
     public Infanterie(){}
 
-    public Infanterie(String model, CategorieInfanterie categorie, String taraProvenienta, float calibru, boolean suportLuneta) {
-        this.codIdentificare = UUID.randomUUID();
+    public Infanterie(int codIdentificare, int idGestionar, String model, CategorieInfanterie categorie,
+                      String taraProvenienta, float calibru, boolean suportLuneta) {
+        this.codIdentificare = codIdentificare;
+        this.idGestionar = idGestionar;
         this.model = model;
         this.categorie = categorie;
         this.taraProvenienta = taraProvenienta;
@@ -23,7 +26,7 @@ public final class Infanterie {
         this.suportLuneta = suportLuneta;
     }
 
-    public UUID getCodIdentificare(){
+    public int getCodIdentificare(){
         return codIdentificare;
     }
     public String getModel() {
@@ -32,6 +35,18 @@ public final class Infanterie {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public void setCodIdentificare(int codIdentificare) {
+        this.codIdentificare = codIdentificare;
+    }
+
+    public int getIdGestionar() {
+        return idGestionar;
+    }
+
+    public void setIdGestionar(int idGestionar) {
+        this.idGestionar = idGestionar;
     }
 
     public CategorieInfanterie getCategorie() {
@@ -68,7 +83,7 @@ public final class Infanterie {
 
     @Override
     public String toString() {
-        return "\n Infanterie " + model + '\n' +
+        return "\n" + model + '\n' +
                 "Cod identificare: " + codIdentificare + '\n' +
                 "Categorie: " + categorie + '\n' +
                 "Calibru (mm): " + calibru + '\n' +

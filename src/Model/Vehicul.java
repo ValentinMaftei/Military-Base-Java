@@ -6,7 +6,9 @@ import jdk.jshell.execution.Util;
 import java.util.UUID;
 
 public abstract class Vehicul {
-    private UUID codIdentificare;
+    private int codIdentificare;
+
+    private int idGestionar;
     private String denumire;
     private UtilizareVehicul utilizare;
     private String taraProvenienta;
@@ -16,9 +18,10 @@ public abstract class Vehicul {
     private int vitezaMaxima;
 
     public Vehicul(){}
-    public Vehicul(String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
+    public Vehicul(int codIdentificare, int idGestionar, String denumire, UtilizareVehicul utilizare, String taraProvenienta, boolean blindat,
                    int nrLocuri, int autonomie, int vitezaMaxima) {
-        this.codIdentificare = UUID.randomUUID();
+        this.codIdentificare = codIdentificare;
+        this.idGestionar = idGestionar;
         this.denumire = denumire;
         this.utilizare = utilizare;
         this.taraProvenienta = taraProvenienta;
@@ -28,7 +31,19 @@ public abstract class Vehicul {
         this.vitezaMaxima = vitezaMaxima;
     }
 
-    public UUID getCodIdentificare(){
+    public void setCodIdentificare(int codIdentificare) {
+        this.codIdentificare = codIdentificare;
+    }
+
+    public int getIdGestionar() {
+        return idGestionar;
+    }
+
+    public void setIdGestionar(int idGestionar) {
+        this.idGestionar = idGestionar;
+    }
+
+    public int getCodIdentificare(){
         return codIdentificare;
     }
 
