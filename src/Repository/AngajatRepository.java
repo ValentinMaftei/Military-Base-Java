@@ -112,4 +112,6 @@ public class AngajatRepository {
         Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
         statement.executeUpdate(query);
     }
+
+
 }
