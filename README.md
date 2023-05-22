@@ -31,32 +31,49 @@ Clasa AngajatiServiceimpl
 ###### Clase service implementate pentru adăugarea în liste a obiectelor fiecare în funcție de tipurile acestora și afișarea lor. 
 Funcții utilizate în clase:
 
-###### Afișarea listei de angajați și adăugarea unui angajat în listă.
+###### Afișarea listei de Angajați și adăugarea unui angajat în listă.
 ```
-void addAngajat(Angajat angajat)
-List<Angajat> getAngajati()
-```
-
-###### Afișarea listei de Echipament Special și adăugarea unui element de acest tip în listă.
-```
-void addLogisticaArtilerie(Artilerie artilerie)
-List<Artilerie> getLogisticaArtilerie()
+void addAngajat(Angajat angajat);
+List<Angajat> getAngajati();
+List<Angajat> getAngajatiAdd();
 ```
 ###### Afișarea listei de Logistică Echipament Special și adăugarea unui element de acest tip în listă.
 ```
-void addLogisticaEchipamentS(EchipamentSpecial echipamentSpecial)
-Set<EchipamentSpecial> getLogisticaEchipamentSpecial()
+void addLogisticaEchipamentS(EchipamentSpecial echipamentSpecial);
+List<EchipamentSpecial> getLogisticaEchipamentSpecial();
+void addLogisticaEchipamentS(List<String[]> data);
+List<EchipamentSpecial> getLogisticaEchipamentSpecialAdd();
 ```
 ###### Afișarea listei de Logistică Infanterie și adăugarea unui element de acest tip în listă.
 ```
-void addLogisticaInfanterie(Infanterie infanterie)
-List<Infanterie> getLogisticaInfanterie()
+void addLogisticaInfanterie(Infanterie infanterie);
+List<Infanterie> getLogisticaInfanterie();
+void addLogisticaInfanterie(List<String[]> infanterie);
+List<Infanterie> getLogisticaInfanterieAdd();
 ```
-###### Afișarea listei de Logistică Vehicule și adăugarea unui angajat în listă.
+###### Afișarea listei de Logistică Transportoare și adăugarea unui element de acest tip în listă.
 ```
-void addLogisticaVehicul(Vehicul vehicul)
-List<Vehicul> getLogisticaVehicule()
+void addTransportoare(List<String[]> transportoare);
+List<Transportor> getTransportoare();
 ```
+###### Afișarea listei de Logistică Blindate și adăugarea unui element de acest tip în listă.
+```
+void addBlindate(List<String[]> blindate);
+List<Blindat> getBlindate();
+```
+###### Afișarea listei de Logistică Autovehicule și adăugarea unui element de acest tip în listă.
+```
+void addAutovehicule(List<String[]> autovehicule);
+List<Autovehicul> getAutovehicule();
+```
+###### Afișarea listei de Logistică Artilerie și adăugarea unui element de acest tip în listă.
+```
+void addLogisticaArtilerie(Artilerie artilerie);
+List<Artilerie> getLogisticaArtilerie();
+void addLogisticaArtilerie(List<String[]> artilerie);
+List<Artilerie> getLogisticaArtilerieAdd();
+```
+
 ###### Afișarea detaliată a unui angajat.
 ```
 public String getDetaliiAngajat()
