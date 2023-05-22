@@ -1,9 +1,10 @@
 package Service;
 
-import Model.Angajat;
+import Model.*;
 
 import java.sql.Date;
 import java.util.List;
+
 
 public interface AngajatiServiceDB {
     public List<Angajat> getAllAngajati();

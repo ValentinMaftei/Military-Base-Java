@@ -4,8 +4,8 @@ import Exceptions.AngajatNotFoundId;
 import Exceptions.AngajatNotFoundNumePrenume;
 import Exceptions.AngajatVarsaInvalidaException;
 import Exceptions.AngajatiNotFoundException;
-import Model.Angajat;
-import Repository.AngajatRepository;
+import Model.*;
+import Repository.*;
 import Service.AngajatiServiceDB;
 import Validari.ValidareAngajat;
 
@@ -112,4 +112,5 @@ public class AngajatiServiceDBimpl implements AngajatiServiceDB {
             System.out.println(e.getMessage());
         }
     }
+
 }

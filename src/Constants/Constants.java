@@ -11,6 +11,7 @@ public class Constants {
     public static final String QUERY_DELETE_ALL_ANGAJATI = "delete from angajat";
     public static final String QUERY_INSERT_ANGAJAT = "insert into angajat(nume, prenume, dataNastere, grad, functie) values (?,?,?,?,?)";
 
+
     // artilerie
     public static final String QUERY_GET_ALL_ARTILERIE = "select * from UnitateMilitara.artilerie";
     public static final String QUERY_GET_ARTILERIE_BY_MODEL = "select * from artilerie where (artilerie.model = ?)";
@@ -21,6 +22,7 @@ public class Constants {
     public static final String QUERY_INSERT_ARTILERIE =
             "insert into artilerie(model, categorie, tip, calibru, bataieMaxima, taraProvenienta) values (?,?,?,?,?,?)";
     public static final String QUERY_DELETE_GESTIONAR_ARTILERIE  = "update artilerie set idGestionarArtilerie = null where artilerie.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_ARTILERIE = "select * from artilerie where artilerie.idGestionarArtilerie = ?";
 
     // infanterie
     public static final String QUERY_GET_ALL_INFANTERIE = "select * from UnitateMilitara.infanterie";
@@ -32,6 +34,7 @@ public class Constants {
     public static final String QUERY_INSERT_INFANTERIE = "insert into infanterie(model, categorie, taraProvenienta, calibru, suportLuneta) values" +
             "(?, ?, ?, ?, ?)";
     public static final String QUERY_DELETE_GESTIONAR_INFANTERIE  = "update infanterie set idGestionarInfanterie = null where infanterie.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_INFANTERIE = "select * from infanterie where infanterie.idGestionarArtilerie = ?";
 
     // special
     public static final String QUERY_GET_ALL_SPECIAL = "select * from UnitateMilitara.special";
@@ -42,6 +45,7 @@ public class Constants {
     public static final String QUERY_DELETE_ALL_SPECIAL = "delete from special";
     public static final String QUERY_INSERT_SPECIAL = "insert into special(tip, model, taraProvenienta) values (?, ?, ?)";
     public static final String QUERY_DELETE_GESTIONAR_SPECIAL  = "update special set idGestionarSpecial = null where special.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_SPECIAL = "select * from special where special.idGestionarArtilerie = ?";
 
     // transportoare
     public static final String QUERY_GET_ALL_TRANSPORTOARE = "select * from UnitateMilitara.transportor";
@@ -54,6 +58,7 @@ public class Constants {
             " blindat, nrLocuri, autonomie, vitezaMaxima, armamentPrincipal, armamentSecundar, tip) VALUES " +
             "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String QUERY_DELETE_GESTIONAR_TRANSPORTOR  = "update transportor set idGestionarTransportor = null where transportor.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_TRANSPORTOR = "select * from transportor where transportor.idGestionarArtilerie = ?";
 
     // blindate
     public static final String QUERY_GET_ALL_BLINDATE = "select * from UnitateMilitara.blindat";
@@ -65,6 +70,7 @@ public class Constants {
     public static final String QUERY_INSERT_BLINDAT = "INSERT INTO blindat(denumire, utilizare, taraProvenienta, " +
             "blindat, nrLocuri, autonomie, vitezaMaxima, suportRemorca, suportArma, arma) VALUES (?,?,?,?,?,?,?,?,?,?)";
     public static final String QUERY_DELETE_GESTIONAR_BLINDAT  = "update blindat set idGestionarBlindat = null where blindat.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_BLINDAT = "select * from blindat where blindat.idGestionarArtilerie = ?";
 
     // autovehicule
     public static final String QUERY_GET_ALL_AUTOVEHICULE = "select * from UnitateMilitara.autovehicul";
@@ -76,4 +82,5 @@ public class Constants {
     public static final String QUERY_INSERT_AUTOVEHICUL = "INSERT INTO autovehicul(denumire, utilizare, taraProvenienta," +
             " blindat, nrLocuri, autonomie, vitezaMaxima, categorie, suportRemorca, tip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String QUERY_DELETE_GESTIONAR_AUTOVEHICUL  = "update autovehicul set idGestionarAutovehicul = null where autovehicul.codIdentificare = ?";
+    public static final String QUERY_GET_GESTIONAR_AUTOVEHICUL = "select * from autovehicul where autovehicul.idGestionarArtilerie = ?";
 }

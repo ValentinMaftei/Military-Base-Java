@@ -1,15 +1,14 @@
 package Repository;
 
 import Config.DataBaseConfiguration;
-import Model.Angajat;
+import Model.*;
 
 import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import Utile.Functie;
-import Utile.Grad;
+import Utile.*;
 
 import static Constants.Constants.*;
 
@@ -113,5 +112,153 @@ public class AngajatRepository {
         statement.executeUpdate(query);
     }
 
+   /* public List<Artilerie> getGestiuneArtilerieAngajatId(int id) throws SQLException{
+        List<Artilerie> artilerieList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_ARTILERIE);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
 
+        while (resultSet.next()) {
+            Artilerie artilerie = new Artilerie(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarArtilerie"),
+                    resultSet.getString("model"),
+                    CategorieArtilerie.valueOf(resultSet.getString("categorie")),
+                    TipArtilerie.valueOf(resultSet.getString("tip")),
+                    resultSet.getFloat("calibru"),
+                    resultSet.getInt("bataieMaxima"),
+                    resultSet.getString("taraProvenienta")
+            );
+
+            artilerieList.add(artilerie);
+        }
+        if (artilerieList.size() == 0)
+            return null;
+        else
+            return artilerieList;
+    }
+
+    public List<Autovehicul> getGestiuneAutovehiculeAngajatId(int id) throws SQLException{
+        List<Autovehicul> autovehiculList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_AUTOVEHICUL);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Autovehicul autovehicul = new Autovehicul(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarAutovehicul"),
+                    resultSet.getString("denumire"),
+                    UtilizareVehicul.valueOf(resultSet.getString("utilizare")),
+                    resultSet.getString("taraProvenienta"),
+                    resultSet.getBoolean("blindat"),
+                    resultSet.getInt("nrLocuri"),
+                    resultSet.getInt("autonomie"),
+                    resultSet.getInt("vitezaMaxima"),
+                    CategorieAutovehicule.valueOf(resultSet.getString("categorie")),
+                    resultSet.getBoolean("suportRemorca"),
+                    TipAutovehicul.valueOf(resultSet.getString("tip"))
+            );
+
+            autovehiculList.add(autovehicul);
+        }
+        if (autovehiculList.size() == 0)
+            return null;
+        else
+            return autovehiculList;
+    }
+
+    public List<Blindat> getGestiuneBlindateAngajatId(int id) throws SQLException {
+        List<Blindat> blindatList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_BLINDAT);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Blindat blindat = new Blindat(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarBlindat"),
+                    resultSet.getString("denumire"),
+                    UtilizareVehicul.valueOf(resultSet.getString("utilizare")),
+                    resultSet.getString("taraProvenienta"),
+                    resultSet.getBoolean("blindat"),
+                    resultSet.getInt("nrLocuri"),
+                    resultSet.getInt("autonomie"),
+                    resultSet.getInt("vitezaMaxima"),
+                    resultSet.getBoolean("suportRemorca"),
+                    resultSet.getBoolean("suportArma"),
+                    resultSet.getString("arma"));
+
+            blindatList.add(blindat);
+        }
+        if (blindatList.size() == 0)
+            return null;
+        else
+            return blindatList;
+    }
+
+    public List<EchipamentSpecial> getGestionarEchipamentSpecialId(int id) throws SQLException {
+        List<EchipamentSpecial> echipamentSpecialList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_SPECIAL);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            EchipamentSpecial echipamentSpecial = new EchipamentSpecial(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarSpecial"),
+                    TipSpeciale.valueOf(resultSet.getString("tip")),
+                    resultSet.getString("model"),
+                    resultSet.getString("taraProvenienta"));
+
+            echipamentSpecialList.add(echipamentSpecial);
+        }
+        if (echipamentSpecialList.size() == 0)
+            return null;
+        else
+            return echipamentSpecialList;
+    }
+
+    public List<Infanterie> getGestionarInfanterieId(int id) throws SQLException {
+        List<Infanterie> infanterieList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_INFANTERIE);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Infanterie infanterie = new Infanterie(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarInfanterie"),
+                    resultSet.getString("model"),
+                    CategorieInfanterie.valueOf(resultSet.getString("categorie")),
+                    resultSet.getString("taraProvenienta"),
+                    resultSet.getFloat("calibru"),
+                    resultSet.getBoolean("suportLuneta")
+            );
+            infanterieList.add(infanterie);
+        }
+        if (infanterieList.size() == 0)
+            return null;
+        else
+            return infanterieList;
+    }
+
+    public List<Transportor> getGestionarTransportorId(int id) throws SQLException {
+        List<Transportor> transportorList = new ArrayList<>();
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_GET_GESTIONAR_TRANSPORTOR);
+        preparedStatement.setInt(1, id);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Transportor transportor = new Transportor(resultSet.getInt("codIdentificare"),
+                    resultSet.getInt("idGestionarTransportor"),
+                    resultSet.getString("denumire"),
+                    UtilizareVehicul.valueOf(resultSet.getString("utilizare")),
+                    resultSet.getString("taraProvenienta"),
+                    resultSet.getBoolean("blindat"),
+                    resultSet.getInt("nrLocuri"),
+                    resultSet.getInt("autonomie"),
+                    resultSet.getInt("vitezaMaxima"),
+                    resultSet.getString("armamentPrincipal"),
+                    resultSet.getString("armamentSecundar"),
+                    TipTransportor.valueOf(resultSet.getString("tip")));
+
+            transportorList.add(transportor);
+        }
+        if (transportorList.size() == 0)
+            return null;
+        else
+            return transportorList;
+    }
+    */
 }
