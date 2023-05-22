@@ -66,7 +66,9 @@ public class ArtilerieRepository {
         preparedStatement.setInt(1, id);
         Artilerie artilerie = new Artilerie();
         ResultSet resultSet = preparedStatement.executeQuery();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             artilerie.setCodIdentificare(resultSet.getInt("codIdentificare"));
             artilerie.setIdGestionar(resultSet.getInt("idGestionarArtilerie"));
             artilerie.setModel(resultSet.getString("model"));
@@ -76,7 +78,10 @@ public class ArtilerieRepository {
             artilerie.setBataieMaxima(resultSet.getInt("bataieMaxima"));
             artilerie.setTaraProvenienta(resultSet.getString("taraProvenienta"));
         }
-        return artilerie;
+        if (!ok)
+            return null;
+        else
+            return artilerie;
     }
 
     public void deleteArtilerieById(int id) throws SQLException{
@@ -104,6 +109,28 @@ public class ArtilerieRepository {
         preparedStatement.setFloat(4, calibru);
         preparedStatement.setInt(5, bataieMaxima);
         preparedStatement.setString(6, taraProvenienta);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editArtilerie(String editCrit, String newValue, String condition) throws SQLException{
+        String query = "update unitatemilitara.artilerie set " + editCrit + " = ";
+        if (editCrit.equals("model") || editCrit.equals("tip") || editCrit.equals("taraProvenienta") || editCrit.equals("categorie")){
+            query += "'" + newValue + "'" + " where artilerie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("calibru")){
+            query += Float.parseFloat(newValue) + "where artilerie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("idGestionarArtilerie")){
+            query += Integer.parseInt(newValue) + " where artilerie.codIdentificare = " + Integer.parseInt(condition);
+        }
+
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+    }
+
+    public void deleteGestionarArtilerie(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_ARTILERIE);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }

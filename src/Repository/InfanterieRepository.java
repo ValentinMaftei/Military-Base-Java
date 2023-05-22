@@ -4,6 +4,7 @@ import Config.DataBaseConfiguration;
 import Model.Infanterie;
 import Utile.CategorieInfanterie;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -63,7 +64,9 @@ public class InfanterieRepository {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         Infanterie infanterie = new Infanterie();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             infanterie.setCodIdentificare(resultSet.getInt("codIdentificare"));
             infanterie.setIdGestionar(resultSet.getInt("idGestionarInfanterie"));
             infanterie.setModel(resultSet.getString("model"));
@@ -72,8 +75,10 @@ public class InfanterieRepository {
             infanterie.setCalibru(resultSet.getFloat("calibru"));
             infanterie.setSuportLuneta(resultSet.getBoolean("suportLuneta"));
         }
-
-        return infanterie;
+        if (!ok)
+            return null;
+        else
+            return infanterie;
     }
 
     public void deleteInfanterieById(int id) throws SQLException{
@@ -100,6 +105,30 @@ public class InfanterieRepository {
         preparedStatement.setString(3, taraProvenienta);
         preparedStatement.setFloat(4, calibru);
         preparedStatement.setBoolean(5, suportLuneta);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editInfanterie(String editCrit, String newValue, String condition) throws SQLException {
+        String query = "update unitatemilitara.infanterie set " + editCrit + " = ";
+        if (editCrit.equals("categorie") || editCrit.equals("model") || editCrit.equals("taraProvenienta")) {
+            query += "'" + newValue + "'" + "where infanterie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("idGestionarInfanterie")){
+            query += Integer.parseInt(newValue) + " where infanterie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("calibru")){
+            query += Float.parseFloat(newValue) + " where infanterie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("suportLuneta")){
+            query += Boolean.parseBoolean(newValue) + " where infanterie.codIdentificare = " + Integer.parseInt(condition);
+        }
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+    }
+
+    public void deleteGestionarInfanterie(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_INFANTERIE);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }

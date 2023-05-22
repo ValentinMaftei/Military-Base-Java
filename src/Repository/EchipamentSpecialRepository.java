@@ -59,14 +59,19 @@ public class EchipamentSpecialRepository {
         EchipamentSpecial echipamentSpecial = new EchipamentSpecial();
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             echipamentSpecial.setCodIdentificare(resultSet.getInt("codIdentificare"));
             echipamentSpecial.setIdGestionar(resultSet.getInt("idGestionarSpecial"));
             echipamentSpecial.setTip(TipSpeciale.valueOf(resultSet.getString("tip")));
             echipamentSpecial.setModel(resultSet.getString("model"));
             echipamentSpecial.setTaraProvenienta(resultSet.getString("taraProvenienta"));
         }
-        return echipamentSpecial;
+        if (!ok)
+            return null;
+        else
+            return echipamentSpecial;
     }
 
     public void deleteEchipamentSpecialById(int id) throws SQLException{
@@ -90,6 +95,26 @@ public class EchipamentSpecialRepository {
         preparedStatement.setString(1, tip);
         preparedStatement.setString(2, model);
         preparedStatement.setString(3, taraProvenienta);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editEchipamentSpecial(String editCrit, String newValue, String condition) throws SQLException {
+        String query = "update unitatemilitara.special set " + editCrit + " = ";
+        if (editCrit.equals("model") || editCrit.equals("taraProvenienta") || editCrit.equals("tip")){
+            query += "'" + newValue + "'" + "where special.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("idGestionarSpecial")){
+            query += Integer.parseInt(newValue) + "where special.codIdentificare = " + Integer.parseInt(condition);
+        }
+
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+    }
+
+
+    public void deleteGestionarEchipamentSpecial(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_SPECIAL);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }

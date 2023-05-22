@@ -76,7 +76,9 @@ public class AutovehiculRepository {
         preparedStatement.setInt(1, id);
         Autovehicul autovehicul = new Autovehicul();
         ResultSet resultSet = preparedStatement.executeQuery();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             autovehicul.setCodIdentificare(resultSet.getInt("codIdentificare"));
             autovehicul.setIdGestionar(resultSet.getInt("idGestionarAutovehicul"));
             autovehicul.setDenumire(resultSet.getString("denumire"));
@@ -90,7 +92,10 @@ public class AutovehiculRepository {
             autovehicul.setSuportRemorca(resultSet.getBoolean("suportRemorca"));
             autovehicul.setTip(TipAutovehicul.valueOf(resultSet.getString("tip")));
         }
-        return autovehicul;
+        if (!ok)
+            return null;
+        else
+            return autovehicul;
     }
 
     public void deleteAutovehiculById(int id) throws SQLException{
@@ -123,6 +128,26 @@ public class AutovehiculRepository {
         preparedStatement.setString(8, categorie);
         preparedStatement.setBoolean(9, suportRemorca);
         preparedStatement.setString(10, tip);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editAutovehicul(String editCrit, String newValue, String condition) throws SQLException {
+        String query = "update unitatemilitara.autovehicul set " + editCrit + " = ";
+        if (editCrit.equals("denumire") || editCrit.equals("taraProvenienta") || editCrit.equals("categorie") || editCrit.equals("tip") || editCrit.equals("utilizare")) {
+            query += "'" + newValue + "'" + "where autovehicul.codIdentificare = " + Integer.parseInt(condition);
+        } else if (editCrit.equals("autonomie") || editCrit.equals("idGestionarAutovehicul") || editCrit.equals("nrLocuri") || editCrit.equals("vitezaMaxima")) {
+            query += Integer.parseInt(newValue) + " where autovehicul.codIdentificare = " + Integer.parseInt(condition);
+        } else if (editCrit.equals("blindat") || editCrit.equals("suportRemorca")) {
+            query += Boolean.parseBoolean(newValue) + " where autovehicul.codIdentificare = " + Integer.parseInt(condition);
+        }
+
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+    }
+
+    public void deleteGestionarAutovehicul(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_AUTOVEHICUL);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }

@@ -4,6 +4,7 @@ import Config.DataBaseConfiguration;
 import Model.Blindat;
 import Utile.UtilizareVehicul;
 
+import javax.swing.plaf.nimbus.State;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,7 +73,9 @@ public class BlindatRepository {
         preparedStatement.setInt(1, id);
         Blindat blindat = new Blindat();
         ResultSet resultSet = preparedStatement.executeQuery();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             blindat.setCodIdentificare(resultSet.getInt("codIdentificare"));
             blindat.setIdGestionar(resultSet.getInt("idGestionarBlindat"));
             blindat.setDenumire(resultSet.getString("denumire"));
@@ -86,7 +89,10 @@ public class BlindatRepository {
             blindat.setSuportArma(resultSet.getBoolean("suportArma"));
             blindat.setArma(resultSet.getString("arma"));
         }
-        return blindat;
+        if (!ok)
+            return null;
+        else
+            return blindat;
     }
 
     public void deleteBlindatById(int id) throws SQLException{
@@ -122,6 +128,33 @@ public class BlindatRepository {
             arma = null;
         }
         preparedStatement.setString(10, arma);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editBlindat(String editCrit, String newValue, String condition) throws SQLException {
+        String query = "update unitatemilitara.blindat set " + editCrit + " = ";
+        String query2 = "update unitatemilitara.blindat set arma = null where blindat.codIdentificare = " + condition;
+        if (editCrit.equals("arma") || editCrit.equals("denumire") || editCrit.equals("taraProvenienta") || editCrit.equals("utilizare")){
+            query += "'" + newValue + "'" + "where blindat.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("autonomie") || editCrit.equals("idGestionarBlindat") || editCrit.equals("nrLocuri") || editCrit.equals("vitezaMaxima")){
+            query += Integer.parseInt(newValue) + " where blindat.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("blindat") || editCrit.equals("suportArma") || editCrit.equals("suportRemorca")){
+            query += Boolean.parseBoolean(newValue) + " where blindat.codIdentificare = " + Integer.parseInt(condition);
+        }
+        if (editCrit.equals("suportArma") && (newValue.equals("false") || newValue.equals("0"))){
+            Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+            statement.executeUpdate(query2);
+        }
+
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+    }
+
+    public void deleteGestionarBlindat(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_BLINDAT);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }

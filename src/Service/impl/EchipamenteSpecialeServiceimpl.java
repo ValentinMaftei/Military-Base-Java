@@ -5,14 +5,11 @@ import Service.EchipamentSpecialService;
 import Utile.AuditActionsSingleton;
 import Utile.TipSpeciale;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-public class EchipamentSpecialServiceimpl implements EchipamentSpecialService {
+public class EchipamenteSpecialeServiceimpl implements EchipamentSpecialService {
 
     List<EchipamentSpecial> logisticaEchipamentSpecial;
     @Override

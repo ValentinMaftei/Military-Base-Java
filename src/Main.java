@@ -1,6 +1,7 @@
 import Config.DataBaseConfiguration;
 import Model.*;
 import Repository.*;
+import Service.AngajatiServiceDB;
 import Service.BlindateService;
 import Service.TransportoareService;
 import Service.VehiculeService;
@@ -209,28 +210,32 @@ public class Main {
 
         DataBaseConfiguration dataBaseConfiguration = new DataBaseConfiguration();
         AngajatRepository angajatRepository = new AngajatRepository(dataBaseConfiguration);
-        //System.out.println("Lista angajati: ");
-        //System.out.println(angajatRepository.getAllAngajati() + "\n\n");
-        //System.out.println(angajatRepository.getAngajatiByName("Maftei", "Valentin"));
-        //System.out.println(angajatRepository.getAngajatById(1));
-        //angajatRepository.deleteAngajatById(12);
+        AngajatiServiceDBimpl angajatiServiceDBimpl = new AngajatiServiceDBimpl(angajatRepository);
+        //System.out.println(angajatiServiceDBimpl.getAllAngajati());
+        //System.out.println(angajatiServiceDBimpl.getAngajatiByName("Maftei", "Valentin"));
+        //System.out.println(angajatiServiceDBimpl.getAngajatById(10));
+        //angajatiServiceDBimpl.deleteAngajatById(19);
         //angajatRepository.deleteAngajatByName("Alexa", "Marin");
         //Calendar calendar = Calendar.getInstance();
-        //calendar.set(1980, Calendar.MAY, 17);
+        //calendar.set(2020, Calendar.MAY, 17);
         //java.sql.Date dataNastere = new java.sql.Date(calendar.getTime().getTime());
-        //angajatRepository.insertAngajat("Cordea", "Andrei", dataNastere, "OFITER", "CAPITAN");
+        //angajatiServiceDBimpl.insertAngajat("Cordea", "Andrei", dataNastere, "OFITER", "CAPITAN");
+        //angajatiServiceDBimpl.editAngajat("grad", "SUBOFITER", "18");
 
         ArtilerieRepository artilerieRepository = new ArtilerieRepository(dataBaseConfiguration);
+        ArtilerieServiceDBimpl artilerieServiceDBimpl = new ArtilerieServiceDBimpl(artilerieRepository);
         //System.out.println("Lista elemente de artilerie: ");
-        //System.out.println(artilerieRepository.getAllArtilerie() + "\n\n");
-        //System.out.println(artilerieRepository.getArtilerieByModel("M 1988"));
-        //System.out.println(artilerieRepository.getArtilerieById(1));
-        //artilerieRepository.deleteArtilerieById(7);
-        //artilerieRepository.deleteArtilerieByModel("M 1988");
-        //artilerieRepository.insertArtilerie("Mim-104 Patriot","ANTIAERIANA", "MOBIL", 90, 12, "Statele Unite ale Americii");
+        //System.out.println(artilerieServiceDBimpl.getAllArtilerie() + "\n\n");
+        //System.out.println(artilerieServiceDBimpl.getArtilerieByModel("M1988"));
+        //System.out.println(artilerieServiceDBimpl.getArtilerieById(5));
+        //artilerieServiceDBimpl.deleteArtilerieById(6);
+        //artilerieServiceDBimpl.deleteArtilerieByModel("M1988");
+        //artilerieServiceDBimpl.insertArtilerie("Mim-104 Patriot","ANTIAERIANA", "MOBIL", 90, 12, "Statele Unite ale Americii");
+        //artilerieServiceDBimpl.editArtilerie("calibru", "8", "9");
 
 
         InfanterieRepository infanterieRepository = new InfanterieRepository(dataBaseConfiguration);
+        InfanterieServiceDBimpl infanterieServiceDBimpl = new InfanterieServiceDBimpl(infanterieRepository);
         //System.out.println("Lista elemente de infanterie: ");
         //System.out.println(infanterieRepository.getAllInfanterie() + "\n\n");
         //System.out.println(infanterieRepository.getInfanterieByModel("M4A1"));
@@ -238,8 +243,10 @@ public class Main {
         //infanterieRepository.deleteInfanterieByModel("RKG-3");
         //infanterieRepository.deleteInfanterieById(17);
         //infanterieRepository.insertInfanterie("M4A1", "ARME_ASALT", "Statele Unite ale Americii", 5.56F, true);
+        //infanterieRepository.editInfanterie("suportLuneta", "true", "7");
 
         EchipamentSpecialRepository echipamentSpecialRepository = new EchipamentSpecialRepository(dataBaseConfiguration);
+        EchipamentSpecialServiceDBimpl echipamentSpecialServiceDBimpl = new EchipamentSpecialServiceDBimpl(echipamentSpecialRepository);
         //System.out.println("Lista echipament special:");
         //System.out.println(echipamentSpecialRepository.getAllEchipamentSpecial() + "\n\n");
         //System.out.println(echipamentSpecialRepository.getEchipamentSpecialByModel("BP-10"));
@@ -247,8 +254,10 @@ public class Main {
         //echipamentSpecialRepository.deleteEchipamentSpecialById(3);
         //echipamentSpecialRepository.deleteEchipamentSpecialByModel("Zodiac MK3");
         //echipamentSpecialRepository.insertEchipamentSpecial("BARCA_ASALT", "BP-10", "Romania");
+        //echipamentSpecialRepository.editEchipamentSpecial("model", "Zodiak MK3", "11");
 
         TransportorRepository transportorRepository = new TransportorRepository(dataBaseConfiguration);
+        TransportoareServiceDBimpl transportoareServiceDBimpl = new TransportoareServiceDBimpl(transportorRepository);
         //System.out.println("Lista transportoare: ");
         //System.out.println(transportorRepository.getAllTransportoare() + "\n\n");
         //System.out.println(transportorRepository.getTransportorById(1));
@@ -258,8 +267,10 @@ public class Main {
         //transportorRepository.insertTransportor("TAB B33 Zimbru", "TRANSPORT", "Romania", true,
         //        10, 700, 85, "mitralieră grea KPVT 14.5 mm",
         //        "mitralieră PKT 7.62 mm", "ROTI");
+        //transportorRepository.editTransportor("nrLocuri", "8", "7");
 
         BlindatRepository blindatRepository = new BlindatRepository(dataBaseConfiguration);
+        BlindateServiceDBimpl blindateServiceDBimpl = new BlindateServiceDBimpl(blindatRepository);
         //System.out.println("Lista blindate: ");
         //System.out.println(blindatRepository.getAllBlindate() + "\n\n");
         //System.out.println(blindatRepository.getBlindatById(1));
@@ -267,8 +278,10 @@ public class Main {
         //blindatRepository.deleteBlindatByDenumire("WOLF");
         //blindatRepository.insertBlindat("URO VAMTAAC", "TRANSPORT", "Spania", true,
         //        4, 600, 135, true, false, "");
+        //blindatRepository.editBlindat("suportArma", "0", "10");
 
         AutovehiculRepository autovehiculRepository = new AutovehiculRepository(dataBaseConfiguration);
+        AutovehiculeServiceDBimpl autovehiculeServiceDBimpl = new AutovehiculeServiceDBimpl(autovehiculRepository);
         //System.out.println("Lista autovehicule: ");
         //System.out.println(autovehiculRepository.getAllAutovehicule() + "\n\n");*/
         //System.out.println(autovehiculRepository.getAutovehiculById(1));
@@ -277,5 +290,7 @@ public class Main {
         //autovehiculRepository.deleteAutovehiculByDenumire("IVECO");
         //autovehiculRepository.insertAutovehicul("IVECO","TRANSPORT","Italia",true,
         //        3,500,110,"DE",true,"AUTOCAMION");
+        //autovehiculRepository.editAutovehicul("taraProvenienta", "Spania", "9");
+        //autovehiculRepository.editAutovehicul("idGestionarAutovehicul", "5", "1");
     }
 }

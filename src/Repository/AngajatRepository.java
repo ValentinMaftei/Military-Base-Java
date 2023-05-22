@@ -61,7 +61,9 @@ public class AngajatRepository {
         preparedStatement.setInt(1, id);
         ResultSet resultSet = preparedStatement.executeQuery();
         Angajat angajat = new Angajat();
+        boolean ok = false;
         while (resultSet.next()) {
+            ok = true;
             angajat.setCodIdentificare(resultSet.getInt("codIdentificare"));
             angajat.setNume(resultSet.getString("nume"));
             angajat.setPrenume(resultSet.getString("prenume"));
@@ -69,7 +71,10 @@ public class AngajatRepository {
             angajat.setGrad(Grad.valueOf(resultSet.getString("grad")));
             angajat.setTitlu(Functie.valueOf(resultSet.getString("functie")));
         }
-        return angajat;
+        if (!ok)
+            return null;
+        else
+            return angajat;
     }
 
     public void deleteAngajatById(int id) throws SQLException{
@@ -98,5 +103,13 @@ public class AngajatRepository {
         preparedStatement.setString(4, grad);
         preparedStatement.setString(5, functie);
         preparedStatement.executeUpdate();
+    }
+
+    public void editAngajat(String editCrit, String newValue, String condition) throws SQLException{
+        String query = "update unitatemilitara.angajat set " + editCrit + " = ";
+        query += "'" + newValue + "'" + " where angajat.codIdentificare = " + Integer.parseInt(condition);
+
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
     }
 }

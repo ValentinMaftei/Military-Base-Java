@@ -73,7 +73,9 @@ public class TransportorRepository {
         preparedStatement.setInt(1, id);
         Transportor transportor = new Transportor();
         ResultSet resultSet = preparedStatement.executeQuery();
+        boolean ok = false;
         while (resultSet.next()){
+            ok = true;
             transportor.setCodIdentificare(resultSet.getInt("codIdentificare"));
             transportor.setIdGestionar(resultSet.getInt("idGestionarTransportor"));
             transportor.setDenumire(resultSet.getString("denumire"));
@@ -87,7 +89,10 @@ public class TransportorRepository {
             transportor.setArmamentSecundar(resultSet.getString("armamentSecundar"));
             transportor.setTipVehicul(TipTransportor.valueOf(resultSet.getString("tip")));
         }
-        return transportor;
+        if (!ok)
+            return null;
+        else
+            return transportor;
     }
 
     public void deleteTransportorById(int id) throws SQLException{
@@ -121,6 +126,30 @@ public class TransportorRepository {
         preparedStatement.setString(8, armamentPrincipal);
         preparedStatement.setString(9, armamentSecundar);
         preparedStatement.setString(10, tip);
+        preparedStatement.executeUpdate();
+    }
+
+    public void editTransportor(String editCrit, String newValue, String condition) throws SQLException {
+        String query = "update unitatemilitara.transportor set " + editCrit + " = ";
+        if (editCrit.equals("armamentSecundar") || editCrit.equals("armamentPrinciapl") || editCrit.equals("denumire") ||
+                editCrit.equals("tip") || editCrit.equals("utilizare") || editCrit.equals("taraProvenienta")){
+            query += "'" + newValue + "'" + " where transportor.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("autonomie") || editCrit.equals("idGestionarTransportor") || editCrit.equals("nrLocuri") ||
+                editCrit.equals("vitezaMaxima")){
+            query += Integer.parseInt(newValue) + " where transportor.codIdentificare = " + Integer.parseInt(condition);
+        }
+        else if (editCrit.equals("blindat")){
+            query += Boolean.parseBoolean(newValue) + " where transportor.codIdentificare = " + Integer.parseInt(condition);
+        }
+        Statement statement = dataBaseConfiguration.getDatabaseConnection().createStatement();
+        statement.executeUpdate(query);
+
+    }
+
+    public void deleteGestionarTransportor(int id) throws SQLException{
+        PreparedStatement preparedStatement = dataBaseConfiguration.getDatabaseConnection().prepareStatement(QUERY_DELETE_GESTIONAR_TRANSPORTOR);
+        preparedStatement.setInt(1, id);
         preparedStatement.executeUpdate();
     }
 }
