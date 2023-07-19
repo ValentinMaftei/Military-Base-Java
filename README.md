@@ -11,6 +11,8 @@ de gradele/funcțiile pe care le pot avea militarii români.
 
 Programul permite introducerea, stocarea și afișarea datelor despre echipamentele militare pe care le poate deține o unitate militară.
 
+##### Diagrama ER
+
 ![diagramaPAO](https://github.com/ValentinMaftei/Proiect-PAO-234-Maftei-Valentin/assets/91968875/cbf297d6-bcfd-46ef-9ee3-722b903735e4)
 
 ##### Concepte POO utilizate
