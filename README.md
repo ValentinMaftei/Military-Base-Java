@@ -89,6 +89,7 @@ Input valid Angajat -> nume, prenume, data nasterii, grad (OFITER, SUBOFITER, SO
 # Military base
 
 ##### The second stage consists of integrating CSV files for Input/Output.
+##### Project developed in Java, using Object-Oriented Programming concepts.
 The project helps with the management of any military unit in Romania. The implementation took into account the military logistics available to the "Romanian Army" and the ranks/roles that Romanian soldiers can have.
 
 The program allows for the input, storage, and display of data about the military equipment that a military unit can possess.
